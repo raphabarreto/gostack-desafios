@@ -20,7 +20,7 @@
 1. Faça um clone desse repositório;
 2. Entre na pasta `cd 01`;
 3. Rode `npm ou yarn` para instalar as dependências;
-4. Clique no botão `Run Insomnia` para que seja importado todo o workspace no seu ambiente para.
+4. Clique no botão [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Desafio%201%3A%20Conceitos%20do%20NodeJS&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fraphabarreto%2Fgostack-desafios%2Fmaster%2F01%2FDesafio%252001.json) para que seja importado todo o workspace.
 
 ---
 
