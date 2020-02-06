@@ -10,6 +10,8 @@
 
 1. **[Desafio 01: Conceitos do NodeJS](https://github.com/raphabarreto/gostack-desafios/tree/master/01)**
 
+2. **[Desafio 2: FastFeet, o início](https://github.com/raphabarreto/gostack-desafios/tree/master/02)**
+
 <br/>
 
 ## 🚀 Tecnologias utilizadas
