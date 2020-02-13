@@ -1,0 +1,22 @@
+<strong>Olá, {{ deliveryman }}</strong>
+<p>Existe uma nova entrega para ser realizada, confira as informações abaixo:</p>
+<p>
+  <hr />
+  <strong>Produto: </strong> {{ product }} <br />
+  <hr />
+  <strong>Endereço da retirada</strong>
+  <hr />
+  <strong>Rua: </strong> {{ street }} <br />
+  <strong>Número: </strong> {{ number }} <br />
+  {{#if complement}}
+  <strong>Complemento: </strong> {{ complement }} <br />
+  {{/if}}
+  <strong>Cidade: </strong> {{ city }} <br />
+  <strong>Estado: </strong> {{ state }} <br />
+  <strong>CEP: </strong> {{ zipCode }} <br />
+  <hr />
+  <br />
+  <small>
+    Para retirar esta encomenda, busque-a entre às 08:00 até às 18:00.
+  </small>
+</p>
