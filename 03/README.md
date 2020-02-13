@@ -23,7 +23,7 @@
 4. Rode `yarn` para instalar as dependências;
 5. Acesse o arquivo .env.example para colocar todas as configurações necessárias nas respectivas variáveis de ambiente
 6. Rode `yarn sequelize seed:generate --name admin-user` para população dos dados no banco;
-7. Clique no botão [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fgithub.com%2Fraphabarreto%2Fgostack-desafios%2Fblob%2Fmaster%2F02%2FFastFeet.json) para que seja importado todo o workspace.
+7. Clique no botão [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fraphabarreto%2Fgostack-desafios%2Fmaster%2F03%2FFastFeet.json) para que seja importado todo o workspace.
 
 ---
 
