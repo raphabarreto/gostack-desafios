@@ -10,11 +10,13 @@
 
 1. **[Desafio 01: Conceitos do NodeJS](https://github.com/raphabarreto/gostack-desafios/tree/master/01)**
 
-2. **[Desafio 2: FastFeet, o início](https://github.com/raphabarreto/gostack-desafios/tree/master/02)**
+2. **[Desafio 02: FastFeet, o início](https://github.com/raphabarreto/gostack-desafios/tree/master/02)**
 
-3. **[Desafio 3: FastFeet, continuando a aplicação](https://github.com/raphabarreto/gostack-desafios/tree/master/03)**
+3. **[Desafio 03: FastFeet, continuando a aplicação](https://github.com/raphabarreto/gostack-desafios/tree/master/03)**
 
-4. **[Desafio 4: Introdução ao React](https://github.com/raphabarreto/gostack-desafios/tree/master/04)**
+4. **[Desafio 04: Introdução ao React](https://github.com/raphabarreto/gostack-desafios/tree/master/04)**
+
+5. **[Desafio 05: Primeiro projeto com ReactJS](https://github.com/raphabarreto/gostack-desafios/tree/master/05)**
 
 <br/>
 
