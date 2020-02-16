@@ -18,11 +18,16 @@
 
 5. **[Desafio 05: Primeiro projeto com ReactJS](https://github.com/raphabarreto/gostack-desafios/tree/master/05)**
 
+6. **[Desafio 06: Primeiro projeto com React Native](https://github.com/raphabarreto/gostack-desafios/tree/master/06)**
+
 <br/>
 
 ## 🚀 Tecnologias utilizadas
 
 - ⚡ [JavaScript](https://skylab.rocketseat.com.br/journey/starter)
+- ⚡ [Node](https://nodejs.org/pt-br/)
+- ⚡ [React](https://pt-br.reactjs.org/)
+- ⚡ [React Native](https://pt-br.reactjs.org/)
 
 ---
 
