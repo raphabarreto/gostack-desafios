@@ -4,7 +4,7 @@
 
 <h3 align="center">Desafio 5: Primeiro projeto com ReactJS</h3>
 
-<p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>Webpack, Babel, Webpack Dev Server e ReactJS</strong> implementando mais funcionalidades contidas no <a href="https://github.com/raphabarreto/gostack-modulos/tree/master/modulo-05">Módulo 5</a>.</p>
+<p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>Webpack, Babel, Webpack Dev Server e ReactJS</strong> implementando mais funcionalidades contidas no <a href="https://github.com/raphabarreto/gostack-modulos/tree/master/modulo-05">Módulo 05</a>.</p>
 
 
 
