@@ -30,7 +30,7 @@
 - ⚡ [Node](https://nodejs.org/pt-br/)
 - ⚡ [React](https://pt-br.reactjs.org/)
 - ⚡ [React Native](https://pt-br.reactjs.org/)
-
+- ⚡ [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
 ---
 
 Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
