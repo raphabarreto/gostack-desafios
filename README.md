@@ -22,6 +22,8 @@
 
 7. **[Desafio 07: Arquitetura Flux](https://github.com/raphabarreto/gostack-desafios/tree/master/07)**
 
+8. **[Desafio 08: Utilizando React Hooks](https://github.com/raphabarreto/gostack-desafios/tree/master/08)**
+
 <br/>
 
 ## 🚀 Tecnologias utilizadas
