@@ -20,6 +20,8 @@
 
 6. **[Desafio 06: Primeiro projeto com React Native](https://github.com/raphabarreto/gostack-desafios/tree/master/06)**
 
+7. **[Desafio 07: Arquitetura Flux](https://github.com/raphabarreto/gostack-desafios/tree/master/07)**
+
 <br/>
 
 ## 🚀 Tecnologias utilizadas
