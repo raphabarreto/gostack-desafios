@@ -6,7 +6,8 @@
 
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>React Native</strong>, migrando o projeto e-commerce do <a href="https://github.com/raphabarreto/gostack-modulos/tree/master/modulo-07">Módulo 07</a> para dispositivos móveis.</p>
 
-
+## 🤖 Resultado
+<img src="rocketshoes/.github/rocketshoes.gif" height="400">
 
 ## 🚀 Tecnologias
 
