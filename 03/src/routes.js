@@ -19,14 +19,18 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 
-routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+
+routes.post('/users', UserController.store);
+routes.put('/users', UserController.update);
 
 routes.use(authMiddleware);
 
+routes.get('/recipients', RecipientController.index);
+routes.get('/recipients/:recipientId', RecipientController.show);
 routes.post('/recipients', RecipientController.store);
-routes.put('/recipients', RecipientController.update);
-routes.put('/users', UserController.update);
+routes.put('/recipients/:recipientId', RecipientController.update);
+routes.delete('/recipients/:recipientId', RecipientController.delete);
 
 routes.get('/deliverymen', DeliverymanController.index);
 routes.get('/deliverymen/:deliverymanId', DeliverymanController.show);
@@ -62,7 +66,6 @@ routes.put(
 );
 
 // Problemas
-
 routes.post(
   '/deliveries/:deliveryId/problems',
   DeliveryProblemsController.store
