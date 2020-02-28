@@ -15,12 +15,17 @@ class CancelDelivery {
       context: {
         deliveryman: updatedDelivery.deliveryman.name,
         product: updatedDelivery.product,
+
         name: updatedDelivery.recipient.name,
-        zipCode: updatedDelivery.recipient.zipCode,
+        street: updatedDelivery.recipient.street,
         number: updatedDelivery.recipient.number,
         complement: updatedDelivery.recipient.complement
           ? updatedDelivery.recipient.complement
           : 'Sem complemento',
+        zipCode: updatedDelivery.recipient.zipCode,
+        state: updatedDelivery.recipient.state,
+        city: updatedDelivery.recipient.city,
+
         problem: problem.description,
       },
     });

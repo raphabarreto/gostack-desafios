@@ -97,7 +97,16 @@ class DeliveryProblemsController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['id', 'name', 'zipCode', 'number', 'complement'],
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'city',
+            'state',
+            'zipCode',
+            'number',
+            'complement',
+          ],
         },
         {
           model: Deliveryman,
