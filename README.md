@@ -24,6 +24,9 @@
 
 8. **[Desafio 08: Utilizando React Hooks](https://github.com/raphabarreto/gostack-desafios/tree/master/08)**
 
+9. **[Desafio 09: FastFeet, front-end web](https://github.com/raphabarreto/gostack-desafios/tree/master/09)**
+
+
 <br/>
 
 ## 🚀 Tecnologias utilizadas
