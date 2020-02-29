@@ -13,13 +13,11 @@ class SessionController {
         .required(),
       password: Yup.string().required(),
     });
-
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
     const { email, password } = req.body;
-
     const user = await User.findOne({
       where: { email },
       include: [
@@ -32,20 +30,20 @@ class SessionController {
     });
 
     if (!user) {
-      return res.status(401).json({ error: 'User not found!' });
+      return res.status(401).json({ error: 'User not found' });
     }
 
     if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: 'Password does not match!' });
+      return res.status(401).json({ error: 'Password does not match' });
     }
 
-    const { id, name, avatar } = user;
-
+    const { id, name, admin, avatar } = user;
     return res.json({
       user: {
         id,
         name,
         email,
+        admin,
         avatar,
       },
       token: jwt.sign({ id }, authConfig.secret, {
