@@ -4,7 +4,7 @@ import { Form, Input } from "@rocketseat/unform";
 import * as Yup from "yup";
 
 import { signInRequest } from "~/store/modules/auth/actions";
-import logo from "~/assets/fastfeet-logo.png";
+import logo from "~/assets/fastfeet-logo@2x.svg";
 
 const schema = Yup.object().shape({
   email: Yup.string()
