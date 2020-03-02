@@ -39,4 +39,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
    }
+
+  .react-icons {
+      vertical-align: -7px;
+  }
 `;
