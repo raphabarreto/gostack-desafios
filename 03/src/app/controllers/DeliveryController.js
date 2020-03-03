@@ -26,7 +26,15 @@ class DeliveryController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['id', 'name', 'zipCode', 'number', 'complement'],
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'zipCode',
+            'complement',
+            'state',
+            'city',
+          ],
         },
         {
           model: Deliveryman,
@@ -68,7 +76,15 @@ class DeliveryController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['id', 'name', 'zipCode', 'number', 'complement'],
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'zipCode',
+            'complement',
+            'state',
+            'city',
+          ],
         },
         {
           model: Deliveryman,
