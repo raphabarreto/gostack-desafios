@@ -1,13 +1,29 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { Input } from "@rocketseat/unform";
 import { FiPlus, FiMoreHorizontal } from "react-icons/fi";
 import { GoPrimitiveDot } from "react-icons/go";
+
 import api from "~/services/api";
 
 import { Container, DeliveryTable } from "./styles";
 
 export default function Delivery() {
+  const [deliveries, setDeliveries] = useState([]);
+  const [q, setQ] = useState([]);
+
+  useEffect(() => {
+    async function loadDeliveries() {
+      const response = await api.get(`deliveries`, {
+        params: q
+      });
+
+      const { data } = response;
+
+      setDeliveries(data);
+    }
+    loadDeliveries();
+  }, [q]);
+
   return (
     <Container>
       <p>Gerenciando encomendas</p>
@@ -29,44 +45,27 @@ export default function Delivery() {
           <th>Ações</th>
         </thead>
         <tbody>
-          <tr>
-            <td>#01</td>
-            <td>Ludwig</td>
-            <td>
-              <span className="deliveryman-name">JD</span>
-              John Doe
-            </td>
-            <td>Rio do Sul</td>
-            <td>Santa Catarina</td>
-            <td>
-              <span>
-                <GoPrimitiveDot size={20} className="react-icons-bullet" />
-                ENTREGUE
-              </span>
-            </td>
-            <td>
-              <FiMoreHorizontal size={25} />
-            </td>
-          </tr>
-          <tr>
-            <td>#02</td>
-            <td>Raphael</td>
-            <td>
-              <span className="deliveryman-name">GP</span>
-              Gaspar Antunes
-            </td>
-            <td>Rio do sul</td>
-            <td>Santa Catarina</td>
-            <td>
-              <span>
-                <GoPrimitiveDot size={20} className="react-icons-bullet" />
-                PENDENTE
-              </span>
-            </td>
-            <td>
-              <FiMoreHorizontal size={25} />
-            </td>
-          </tr>
+          {deliveries.map(delivery => (
+            <tr key={delivery.id}>
+              <td>#{delivery.id}</td>
+              <td>{delivery.recipient.name}</td>
+              <td>
+                <span className="deliveryman-name">JD</span>
+                {delivery.deliveryman.name}
+              </td>
+              <td>{delivery.recipient.city}</td>
+              <td>{delivery.recipient.state}</td>
+              <td>
+                <span>
+                  <GoPrimitiveDot size={20} className="react-icons-bullet" />
+                  ENTREGUE
+                </span>
+              </td>
+              <td>
+                <FiMoreHorizontal size={25} />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </DeliveryTable>
     </Container>
