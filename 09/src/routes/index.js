@@ -1,10 +1,10 @@
-import React from "react";
-import { Switch } from "react-router-dom";
-import Route from "./Route";
+import React from 'react';
+import { Switch } from 'react-router-dom';
+import Route from './Route';
 
-import SignIn from "../pages/SignIn";
+import SignIn from '../pages/SignIn';
 
-import Delivery from "../pages/Delivery";
+import Delivery from '../pages/Delivery';
 
 export default function Routes() {
   return (

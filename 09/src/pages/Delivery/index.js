@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { Input } from "@rocketseat/unform";
-import { FiPlus, FiMoreHorizontal } from "react-icons/fi";
-import { GoPrimitiveDot } from "react-icons/go";
+import React, { useState, useEffect } from 'react';
+import { Input } from '@rocketseat/unform';
+import { FiPlus, FiMoreHorizontal } from 'react-icons/fi';
+import { GoPrimitiveDot } from 'react-icons/go';
 
-import api from "~/services/api";
+import api from '~/services/api';
 
-import { Container, DeliveryTable } from "./styles";
+import { Container, DeliveryTable } from './styles';
 
 export default function Delivery() {
   const [deliveries, setDeliveries] = useState([]);
-  const [q, setQ] = useState([]);
+  const [q, setQ] = useState('');
 
   useEffect(() => {
     async function loadDeliveries() {
-      const response = await api.get(`deliveries`, {
-        params: q
+      const response = await api.get('deliveries', {
+        params: { q },
       });
 
       const { data } = response;
@@ -28,7 +28,11 @@ export default function Delivery() {
     <Container>
       <p>Gerenciando encomendas</p>
       <header>
-        <Input name="encomendas" placeholder="🔍 Buscar por encomendas" />
+        <Input
+          name="encomendas"
+          placeholder="🔍 Buscar por encomendas"
+          onChange={e => setQ(e.target.value)}
+        />
         <button type="button">
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
@@ -47,7 +51,7 @@ export default function Delivery() {
         <tbody>
           {deliveries.map(delivery => (
             <tr key={delivery.id}>
-              <td>#{delivery.id}</td>
+              <td>{delivery.product}</td>
               <td>{delivery.recipient.name}</td>
               <td>
                 <span className="deliveryman-name">JD</span>

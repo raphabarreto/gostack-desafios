@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { darken } from "polished";
+import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 90%;
@@ -93,7 +93,7 @@ export const DeliveryTable = styled.table`
     background: #dff0df;
     font-size: 14px;
     font-weight: bold;
-    color: ${darken(0.3, "#DFF0DF")};
+    color: ${darken(0.3, '#DFF0DF')};
   }
 
   .react-icons-bullet {
@@ -107,6 +107,6 @@ export const DeliveryTable = styled.table`
     background: #f4effc;
     font-size: 14px;
     font-weight: bold;
-    color: ${darken(0.25, "#F4EFFC")};
+    color: ${darken(0.25, '#F4EFFC')};
   }
 `;
