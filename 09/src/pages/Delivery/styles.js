@@ -86,7 +86,7 @@ export const DeliveryTable = styled.table`
     text-align: right;
   }
 
-  td > span {
+  .status {
     border-radius: 0.9em;
     justify-content: left;
     padding: 5px 10px;
@@ -98,15 +98,5 @@ export const DeliveryTable = styled.table`
 
   .react-icons-bullet {
     vertical-align: -5px;
-  }
-
-  .deliveryman-name {
-    border-radius: 80%;
-    padding: 15px 15px;
-    margin-right: 10px;
-    background: #f4effc;
-    font-size: 14px;
-    font-weight: bold;
-    color: ${darken(0.25, '#F4EFFC')};
   }
 `;

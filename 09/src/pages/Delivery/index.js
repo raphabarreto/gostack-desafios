@@ -3,6 +3,8 @@ import { Input } from '@rocketseat/unform';
 import { FiPlus, FiMoreHorizontal } from 'react-icons/fi';
 import { GoPrimitiveDot } from 'react-icons/go';
 
+import InitialLetters from '~/components/Letters';
+
 import api from '~/services/api';
 
 import { Container, DeliveryTable } from './styles';
@@ -51,16 +53,19 @@ export default function Delivery() {
         <tbody>
           {deliveries.map(delivery => (
             <tr key={delivery.id}>
-              <td>{delivery.product}</td>
+              <td>#{delivery.id}</td>
               <td>{delivery.recipient.name}</td>
               <td>
-                <span className="deliveryman-name">JD</span>
+                <InitialLetters
+                  className="deliveryman-name"
+                  name={delivery.deliveryman.name}
+                />
                 {delivery.deliveryman.name}
               </td>
               <td>{delivery.recipient.city}</td>
               <td>{delivery.recipient.state}</td>
               <td>
-                <span>
+                <span className="status">
                   <GoPrimitiveDot size={20} className="react-icons-bullet" />
                   ENTREGUE
                 </span>
