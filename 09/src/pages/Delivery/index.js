@@ -7,7 +7,7 @@ import InitialLetters from '~/components/Letters';
 
 import api from '~/services/api';
 
-import { Container, DeliveryTable, Status } from './styles';
+import { Container, DeliveryTable, Status, Header } from './styles';
 
 export default function Delivery() {
   const [deliveries, setDeliveries] = useState([]);
@@ -29,7 +29,7 @@ export default function Delivery() {
   return (
     <Container>
       <p>Gerenciando encomendas</p>
-      <header>
+      <Header>
         <Input
           name="encomendas"
           placeholder="🔍 Buscar por encomendas"
@@ -38,7 +38,7 @@ export default function Delivery() {
         <button type="button">
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
-      </header>
+      </Header>
 
       <DeliveryTable>
         <thead>

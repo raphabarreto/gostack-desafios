@@ -15,32 +15,37 @@ export const Container = styled.div`
     font-weight: bold;
     margin-bottom: 30px;
   }
+`;
 
-  header {
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 237px;
+    height: 36px;
+    border: 2px solid #dddddd;
+    border-radius: 5px;
+  }
+
+  input::placeholder {
     display: flex;
-    justify-content: space-between;
+    padding-left: 5px;
+  }
 
-    input {
-      width: 237px;
-      height: 36px;
-      border: 2px solid #dddddd;
-      border-radius: 5px;
-    }
+  input {
+    box-sizing: border-box;
+    padding: 15px;
+  }
 
-    input::placeholder {
-      display: flex;
-      padding: 10px;
-    }
-
-    button {
-      width: 150px;
-      height: 40px;
-      border: 1px solid;
-      border-radius: 5px;
-      background: #7d40e7;
-      color: #fff;
-      font-weight: bold;
-    }
+  button {
+    width: 150px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 5px;
+    background: #7d40e7;
+    color: #fff;
+    font-weight: bold;
   }
 `;
 
@@ -87,12 +92,12 @@ export const DeliveryTable = styled.table`
   }
 `;
 
-export const Status = styled.span.attrs(props => ({
+export const Status = styled.span.attrs({
   delivered: '#2CA42B',
   pending: '#C1BC35',
   canceled: '#DE3B3B',
   withdraw: '#4D85EE',
-}))`
+})`
   border-radius: 0.9em;
   justify-content: left;
   padding: 5px 10px;
