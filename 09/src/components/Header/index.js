@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { signOut } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/fastfeet-logo.svg';
 
-import { Container, Content, Profile } from './styles';
+import { Container, Content, Profile, StyledNavLink } from './styles';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -20,19 +20,19 @@ export default function Header() {
       <Content>
         <nav>
           <img src={logo} alt="FastFeet" />
-          <Link to="/delivery">ENCOMENDAS</Link>
-          <Link to="/delivery">ENTREGADORES</Link>
-          <Link to="/delivery">DESTINATÁRIOS</Link>
-          <Link to="/delivery">PROBLEMAS</Link>
+          <StyledNavLink to="/delivery">ENCOMENDAS</StyledNavLink>
+          <StyledNavLink to="/deliverymen">ENTREGADORES</StyledNavLink>
+          <StyledNavLink to="/recipients">DESTINATÁRIOS</StyledNavLink>
+          <StyledNavLink to="/problems">PROBLEMAS</StyledNavLink>
         </nav>
 
         <aside>
           <Profile>
             <div>
               <strong>Admin FastFeet</strong>
-              <Link to="/" onClick={handleSignOut}>
+              <NavLink to="/" onClick={handleSignOut}>
                 sair do sistema
-              </Link>
+              </NavLink>
             </div>
           </Profile>
         </aside>

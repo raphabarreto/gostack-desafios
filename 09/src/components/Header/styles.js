@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   background: #ffffff;
@@ -57,5 +58,14 @@ export const Profile = styled.div`
       font-size: 12px;
       color: #de3b3b;
     }
+  }
+`;
+
+const activeClassName = 'active';
+export const StyledNavLink = styled(NavLink).attrs({
+  activeClassName,
+})`
+  &.${activeClassName} {
+    color: #000000;
   }
 `;
