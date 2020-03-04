@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { lighten } from 'polished';
 
 export const Container = styled.div`
   max-width: 90%;
@@ -85,16 +85,46 @@ export const DeliveryTable = styled.table`
   thead th:nth-child(7) {
     text-align: right;
   }
+`;
 
-  .status {
-    border-radius: 0.9em;
-    justify-content: left;
-    padding: 5px 10px;
-    background: #dff0df;
-    font-size: 14px;
-    font-weight: bold;
-    color: ${darken(0.3, '#DFF0DF')};
-  }
+export const Status = styled.span.attrs(props => ({
+  delivered: '#2CA42B',
+  pending: '#C1BC35',
+  canceled: '#DE3B3B',
+  withdraw: '#4D85EE',
+}))`
+  border-radius: 0.9em;
+  justify-content: left;
+  padding: 5px 10px;
+  background: #dff0df;
+  font-size: 14px;
+  font-weight: bold;
+
+  color: ${props => {
+    switch (props.status) {
+      case 'delivered':
+        return props.delivered;
+      case 'pending':
+        return props.pending;
+      case 'canceled':
+        return props.canceled;
+      default:
+        return props.withdraw;
+    }
+  }};
+
+  background-color: ${props => {
+    switch (props.status) {
+      case 'delivered':
+        return lighten(0.5, props.delivered);
+      case 'pending':
+        return lighten(0.45, props.pending);
+      case 'canceled':
+        return lighten(0.3, props.canceled);
+      default:
+        return lighten(0.3, props.withdraw);
+    }
+  }};
 
   .react-icons-bullet {
     vertical-align: -5px;

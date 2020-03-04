@@ -7,7 +7,7 @@ import InitialLetters from '~/components/Letters';
 
 import api from '~/services/api';
 
-import { Container, DeliveryTable } from './styles';
+import { Container, DeliveryTable, Status } from './styles';
 
 export default function Delivery() {
   const [deliveries, setDeliveries] = useState([]);
@@ -65,10 +65,10 @@ export default function Delivery() {
               <td>{delivery.recipient.city}</td>
               <td>{delivery.recipient.state}</td>
               <td>
-                <span className="status">
+                <Status status="delivered">
                   <GoPrimitiveDot size={20} className="react-icons-bullet" />
                   ENTREGUE
-                </span>
+                </Status>
               </td>
               <td>
                 <FiMoreHorizontal size={25} />
