@@ -19,7 +19,14 @@ class DeliveryController {
         product: { [Op.iLike]: `%${q}%` },
       },
       offset: (page - 1) * 20,
-      attributes: ['id', 'product', 'created_at'],
+      attributes: [
+        'id',
+        'product',
+        'created_at',
+        'start_date',
+        'end_date',
+        'canceled_at',
+      ],
       include: [
         {
           model: Recipient,
