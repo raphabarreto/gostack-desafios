@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { Content } from './styles';
 
 export default function InitialLetters({ name }) {
-  const letters = name.match(/\b(\w)/g);
+  const formattedName = name.replace(/\s(de|da|do|dos|das|)\s/g, ' ');
+  const letters = formattedName.match(/\b(\w)/gi);
 
   return <Content>{letters}</Content>;
 }

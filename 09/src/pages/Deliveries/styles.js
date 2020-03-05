@@ -49,6 +49,23 @@ export const Header = styled.div`
   }
 `;
 
+export const Search = styled.div`
+  background: #fff;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px 8px;
+
+  input {
+    border: 0;
+    font-size: 14px;
+    color: #999999;
+  }
+`;
+
 export const DeliveryTable = styled.table`
   border-spacing: 0 10px;
 
@@ -107,11 +124,11 @@ export const Status = styled.span.attrs({
 
   color: ${props => {
     switch (props.status) {
-      case 'delivered':
+      case 'ENTREGUE':
         return props.delivered;
-      case 'pending':
+      case 'PENDENTE':
         return props.pending;
-      case 'canceled':
+      case 'CANCELADA':
         return props.canceled;
       default:
         return props.withdraw;
@@ -120,11 +137,11 @@ export const Status = styled.span.attrs({
 
   background-color: ${props => {
     switch (props.status) {
-      case 'delivered':
+      case 'ENTREGUE':
         return lighten(0.5, props.delivered);
-      case 'pending':
+      case 'PENDENTE':
         return lighten(0.45, props.pending);
-      case 'canceled':
+      case 'CANCELADA':
         return lighten(0.3, props.canceled);
       default:
         return lighten(0.3, props.withdraw);
@@ -133,5 +150,40 @@ export const Status = styled.span.attrs({
 
   .react-icons-bullet {
     vertical-align: -5px;
+  }
+`;
+
+export const ActionButton = styled.div`
+  button {
+    border: none;
+    background: none;
+    color: #999999;
+  }
+`;
+
+export const ActionList = styled.div`
+  display: ${props => (props.visible ? 'flex' : 'none')};
+  flex-direction: column;
+  position: absolute;
+  background: #fff;
+  height: 120px;
+  width: 150px;
+  align-items: flex-start;
+
+  a,
+  button {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    width: 150px;
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    color: #999999;
+    margin-left: 10px;
+
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 `;
