@@ -187,3 +187,75 @@ export const ActionList = styled.div`
     }
   }
 `;
+
+export const View = styled.div`
+  display: ${props => (props.view ? 'flex' : 'none')};
+  position: absolute;
+  background: #fff;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  top: 200px;
+  border-radius: 4px;
+  padding: 15px;
+  flex-direction: column;
+
+  button {
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+    margin-bottom: 15px;
+
+    svg {
+      margin-left: 150px;
+    }
+  }
+
+  .street,
+  .city,
+  .zipCode {
+    font-size: 16px;
+    color: #666;
+    padding-bottom: 10px;
+  }
+
+  .dates {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+  }
+  .withdraw,
+  .delivery {
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+  }
+
+  .zipCode,
+  .delivery {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .signature {
+    margin: 5px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444444;
+  }
+
+  img {
+    width: 240px;
+    height: 110px;
+    margin: 5px 70px;
+  }
+`;

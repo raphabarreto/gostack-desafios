@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
+
 import { Input } from '@rocketseat/unform';
+
 import { FiPlus } from 'react-icons/fi';
 import { FaEllipsisH } from 'react-icons/fa';
 import { GoPrimitiveDot } from 'react-icons/go';
+
 import {
   MdSearch,
   MdVisibility,
   MdEdit,
   MdDeleteForever,
+  MdClose,
 } from 'react-icons/md';
 import { toast } from 'react-toastify';
+
+import { parseISO } from 'date-fns';
+import { format } from 'date-fns-tz';
 
 import InitialLetters from '~/components/Letters';
 
@@ -23,11 +30,15 @@ import {
   Search,
   ActionButton,
   ActionList,
+  View,
 } from './styles';
 
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
   const [q, setQ] = useState('');
+
+  const [view, setView] = useState(false);
+  const [deliveryView, setDeliveryView] = useState({});
 
   useEffect(() => {
     async function loadDeliveries() {
@@ -52,15 +63,52 @@ export default function Deliveries() {
       setDeliveries(data);
     }
     loadDeliveries();
-  }, [
-    deliveries.canceled_at,
-    deliveries.end_date,
-    deliveries.start_date,
-    deliveries.status,
-    q,
-  ]);
+  }, [q]);
+
+  function handleToggleActions(id) {
+    const updateDeliveries = deliveries.map(d => {
+      if (d.id === id) {
+        d.visible = !d.visible;
+      }
+      return d;
+    });
+
+    setDeliveries(updateDeliveries);
+  }
+
+  function handleDeliveryView(data) {
+    const { street, number, city, state, zipCode } = data.recipient;
+    const { start_date, end_date, signature } = data;
+
+    const startDateFormatted = start_date
+      ? format(parseISO(start_date), 'dd/MM/yyyy - HH:mm')
+      : null;
+
+    const endDateFormatted = end_date
+      ? format(parseISO(end_date), 'dd/MM/yyyy - HH:mm')
+      : null;
+
+    setDeliveryView({
+      street,
+      number,
+      city,
+      state,
+      zipCode,
+      startDateFormatted,
+      endDateFormatted,
+      signature,
+    });
+
+    setView(true);
+  }
 
   async function handleRemove(id) {
+    const removeAlert = window.confirm(
+      'Tem certeza que quer excluir a encomenda?'
+    );
+    if (!removeAlert) {
+      return;
+    }
     try {
       await api.delete(`/deliveries/${id}`);
 
@@ -72,17 +120,6 @@ export default function Deliveries() {
     } finally {
       toast.success('Encomenda excluída com sucesso!');
     }
-  }
-
-  function handleToggleActions(id) {
-    const updateDeliveries = deliveries.map(d => {
-      if (d.id === id) {
-        d.visible = !d.visible;
-      }
-      return d;
-    });
-
-    setDeliveries(updateDeliveries);
   }
 
   return (
@@ -142,7 +179,13 @@ export default function Deliveries() {
                   </button>
 
                   <ActionList visible={delivery.visible}>
-                    <button type="button">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleDeliveryView(delivery);
+                        handleToggleActions(delivery.id);
+                      }}
+                    >
                       <MdVisibility
                         size={24}
                         color="#8E5BE8"
@@ -160,7 +203,9 @@ export default function Deliveries() {
                     </button>
                     <button
                       type="button"
-                      onClick={() => handleRemove(delivery.id)}
+                      onClick={() => {
+                        handleRemove(delivery.id);
+                      }}
                     >
                       <MdDeleteForever
                         size={24}
@@ -176,6 +221,39 @@ export default function Deliveries() {
           ))}
         </tbody>
       </DeliveryTable>
+      <View view={view}>
+        <div>
+          <button type="button" onClick={() => setView(false)}>
+            Informações da encomenda
+            <span>
+              <MdClose size={22} className="react-icons" />
+            </span>
+          </button>
+        </div>
+
+        <span className="street">
+          {deliveryView.street}, {deliveryView.number}
+        </span>
+        <span className="city">
+          {deliveryView.city} - {deliveryView.state}
+        </span>
+        <span className="zipCode">0{deliveryView.zipCode}</span>
+        <span className="dates">Datas</span>
+        <span className="withdraw">
+          Retirada: {deliveryView.startDateFormatted}
+        </span>
+        <span className="delivery">
+          Entrega: {deliveryView.endDateFormatted}
+        </span>
+        <span className="signature">Assinatura do destinatário</span>
+        <span>
+          {deliveryView.signature ? (
+            <img src={deliveryView.signature.url} alt="signature" />
+          ) : (
+            <h1>Não assinou</h1>
+          )}
+        </span>
+      </View>
     </Container>
   );
 }
