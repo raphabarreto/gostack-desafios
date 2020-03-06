@@ -128,13 +128,14 @@ export const ActionList = styled.div`
   }
 `;
 
-export const View = styled.nav`
+export const View = styled.div`
   display: ${props => (props.view ? 'flex' : 'none')};
   position: absolute;
   background: #fff;
-  top: auto;
-  left: auto;
-  width: 400px;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 180px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -144,19 +145,17 @@ export const View = styled.nav`
   border-radius: 4px;
   padding: 15px;
   flex-direction: column;
-  header {
-    display: flex;
-    justify-content: space-between;
-    button {
-      border: 0;
-      background: none;
-    }
-  }
-  h1 {
-    font-weight: bold;
+
+  button {
+    border: none;
+    background: none;
     font-size: 14px;
-  }
-  p {
-    text-align: left;
+    font-weight: bold;
+    color: #444444;
+    margin-bottom: 15px;
+
+    svg {
+      margin-left: 180px;
+    }
   }
 `;

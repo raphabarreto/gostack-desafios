@@ -2,16 +2,25 @@ import React, { useState, useEffect } from 'react';
 
 import { FaEllipsisH } from 'react-icons/fa';
 
-import { MdEdit, MdDeleteForever } from 'react-icons/md';
+import { MdEdit, MdDeleteForever, MdClose } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 import api from '~/services/api';
 
-import { Container, ProblemsTable, ActionButton, ActionList } from './styles';
+import {
+  Container,
+  ProblemsTable,
+  ActionButton,
+  ActionList,
+  View,
+} from './styles';
 
 export default function Problems() {
   const [problems, setProblems] = useState([]);
   const [q, setQ] = useState('');
+
+  const [view, setView] = useState(false);
+  const [problemView, setProblemView] = useState({});
 
   useEffect(() => {
     async function loadProblems() {
@@ -35,6 +44,14 @@ export default function Problems() {
     });
 
     setProblems(updateProblems);
+  }
+
+  function handleProblemView(data) {
+    const { description } = data;
+
+    setProblemView({ description });
+
+    setView(true);
   }
 
   async function handleRemove(id) {
@@ -82,7 +99,13 @@ export default function Problems() {
                   </button>
 
                   <ActionList visible={problem.visible}>
-                    <button type="button">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleProblemView(problem);
+                        handleToggleActions(problem.id);
+                      }}
+                    >
                       <MdEdit
                         size={24}
                         color="#4D85EE"
@@ -110,6 +133,18 @@ export default function Problems() {
           ))}
         </tbody>
       </ProblemsTable>
+      <View view={view}>
+        <div>
+          <button type="button" onClick={() => setView(false)}>
+            Informações da encomenda
+            <span>
+              <MdClose size={22} className="react-icons" />
+            </span>
+          </button>
+        </div>
+
+        <span>{problemView.description}</span>
+      </View>
     </Container>
   );
 }
