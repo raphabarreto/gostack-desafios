@@ -6,7 +6,7 @@ import { MdChevronLeft, MdDone } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 
-import AvatarInput from './AvatarInput';
+import AvatarInput from '../AvatarInput';
 
 import api from '~/services/api';
 import history from '~/services/history';
