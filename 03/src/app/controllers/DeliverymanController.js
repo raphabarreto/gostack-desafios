@@ -104,16 +104,6 @@ class DeliveryManController {
       });
     }
 
-    const emailExists = await Deliveryman.findOne({
-      where: { email: req.body.email },
-    });
-
-    if (emailExists) {
-      return res.status(401).json({
-        error: 'E-mail already exists',
-      });
-    }
-
     const deliveryman = await Deliveryman.findByPk(deliverymanId);
 
     if (!deliveryman) {
