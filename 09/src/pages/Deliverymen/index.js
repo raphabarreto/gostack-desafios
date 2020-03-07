@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 import InitialLetters from '~/components/Letters';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import {
   Container,
@@ -81,7 +82,10 @@ export default function Deliverymen() {
             onChange={e => setQ(e.target.value)}
           />
         </Search>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => history.push('/deliveryman/register')}
+        >
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
       </Header>
