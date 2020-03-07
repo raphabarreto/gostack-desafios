@@ -70,6 +70,13 @@ export default function Deliverymen() {
     }
   }
 
+  function handleEdit(deliveryman) {
+    history.push({
+      pathname: '/deliverymen/edit',
+      state: { deliveryman },
+    });
+  }
+
   return (
     <Container>
       <p>Gerenciando entregadores</p>
@@ -84,7 +91,7 @@ export default function Deliverymen() {
         </Search>
         <button
           type="button"
-          onClick={() => history.push('/deliveryman/register')}
+          onClick={() => history.push('/deliverymen/register')}
         >
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
@@ -123,7 +130,10 @@ export default function Deliverymen() {
                   </button>
 
                   <ActionList visible={deliveryman.visible}>
-                    <button type="button">
+                    <button
+                      type="button"
+                      onClick={() => handleEdit(deliveryman)}
+                    >
                       <MdEdit
                         size={24}
                         color="#4D85EE"
