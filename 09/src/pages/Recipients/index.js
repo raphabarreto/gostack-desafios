@@ -68,6 +68,13 @@ export default function Recipients() {
     }
   }
 
+  function handleEdit(recipient) {
+    history.push({
+      pathname: '/recipients/edit',
+      state: { recipient },
+    });
+  }
+
   return (
     <Container>
       <p>Gerenciando destinatários</p>
@@ -114,7 +121,7 @@ export default function Recipients() {
                   </button>
 
                   <ActionList visible={recipient.visible}>
-                    <button type="button">
+                    <button type="button" onClick={() => handleEdit(recipient)}>
                       <MdEdit
                         size={24}
                         color="#4D85EE"
