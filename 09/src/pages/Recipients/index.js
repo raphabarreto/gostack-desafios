@@ -8,6 +8,7 @@ import { FaEllipsisH } from 'react-icons/fa';
 import { MdSearch, MdEdit, MdDeleteForever } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
+import history from '~/services/history';
 import api from '~/services/api';
 
 import {
@@ -79,7 +80,10 @@ export default function Recipients() {
             onChange={e => setQ(e.target.value)}
           />
         </Search>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => history.push('/recipients/register')}
+        >
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
       </Header>

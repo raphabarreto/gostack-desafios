@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   max-width: 900px;
   margin: 50px auto;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Header = styled.div`
@@ -49,9 +52,17 @@ export const FormContainer = styled.div`
 
   label {
     display: flex;
-    margin: 0px 20px;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-left: 20px;
     font-weight: bold;
+    color: #444444;
+  }
+
+  span {
+    color: #fb6c91;
+    display: block;
+    font-weight: bold;
+    margin: 0 20px;
   }
 
   input {
@@ -60,5 +71,51 @@ export const FormContainer = styled.div`
     height: 45px;
     border: 1px solid #dddddd;
     border-radius: 5px;
+  }
+
+  .secondLine {
+    display: flex;
+    justify-content: space-between;
+
+    .street {
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .number {
+      width: 100px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .complement {
+      width: 180px;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .thirdLine {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .city {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .state {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .zipCode {
+    width: 180px;
+    display: flex;
+    flex-direction: row;
   }
 `;
