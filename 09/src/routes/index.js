@@ -6,6 +6,7 @@ import SignIn from '../pages/SignIn';
 
 import Deliveries from '../pages/Deliveries';
 import DeliveryRegister from '../pages/Deliveries/Register';
+import DeliveryEdit from '../pages/Deliveries/Edit';
 
 import Deliverymen from '../pages/Deliverymen';
 import DeliverymanRegister from '../pages/Deliverymen/Register';
@@ -29,6 +30,7 @@ export default function Routes() {
         component={DeliveryRegister}
         isPrivate
       />
+      <Route path="/deliveries/edit" component={DeliveryEdit} isPrivate />
 
       <Route path="/deliverymen" exact component={Deliverymen} isPrivate />
       <Route

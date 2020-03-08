@@ -123,6 +123,13 @@ export default function Deliveries() {
     }
   }
 
+  function handleEdit(delivery) {
+    history.push({
+      pathname: '/deliveries/edit',
+      state: { delivery },
+    });
+  }
+
   return (
     <Container>
       <p>Gerenciando encomendas</p>
@@ -197,7 +204,7 @@ export default function Deliveries() {
                       />
                       Visualizar
                     </button>
-                    <button type="button">
+                    <button type="button" onClick={() => handleEdit(delivery)}>
                       <MdEdit
                         size={24}
                         color="#4D85EE"
