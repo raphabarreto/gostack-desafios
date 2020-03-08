@@ -21,6 +21,7 @@ import { format } from 'date-fns-tz';
 import InitialLetters from '~/components/Letters';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import {
   Container,
@@ -134,7 +135,10 @@ export default function Deliveries() {
             onChange={e => setQ(e.target.value)}
           />
         </Search>
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => history.push('/deliveries/register')}
+        >
           <FiPlus size={24} className="react-icons" /> CADASTRAR
         </button>
       </Header>
@@ -250,8 +254,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-            <h1>Não assinou</h1>
-          )}
+              <h1>Não assinou</h1>
+            )}
         </span>
       </View>
     </Container>
