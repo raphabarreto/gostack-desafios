@@ -23,7 +23,7 @@ class RecipientController {
         'complement',
         'city',
         'state',
-        'zip_code',
+        'zipCode',
       ],
     });
 
@@ -43,7 +43,7 @@ class RecipientController {
         'complement',
         'city',
         'state',
-        'zip_code',
+        'zipCode',
       ],
     });
 
