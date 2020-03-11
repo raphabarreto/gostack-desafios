@@ -1,8 +1,24 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Image } from 'react-native';
 
-// import { Container } from './styles';
+import logo from '~/assets/logo.png';
+
+import { Container, Form, FormInput, SubmitButton } from './styles';
 
 export default function SignIn() {
-  return <Text>SignIn</Text>;
+  return (
+    <Container>
+      <Image source={logo} />
+
+      <Form>
+        <FormInput
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder="Informe seu ID de cadastro"
+        />
+
+        <SubmitButton onPress={() => { }}>Entrar no sistema</SubmitButton>
+      </Form>
+    </Container>
+  );
 }
