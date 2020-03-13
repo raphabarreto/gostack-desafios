@@ -25,7 +25,16 @@ class FinishedDeliveriesController {
         {
           model: Recipient,
           as: 'recipient',
-          attributes: ['id', 'name', 'zip_code', 'number', 'complement'],
+          attributes: [
+            'id',
+            'name',
+            'street',
+            'number',
+            'complement',
+            'state',
+            'city',
+            'zip_code',
+          ],
         },
         {
           model: File,
