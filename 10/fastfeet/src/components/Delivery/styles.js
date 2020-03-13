@@ -84,3 +84,5 @@ export const StatusName = styled.Text`
   color: #999999;
   font-size: 8px;
 `;
+
+export const DeliveryLink = styled.TouchableOpacity``;

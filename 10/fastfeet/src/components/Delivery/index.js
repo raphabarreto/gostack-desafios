@@ -16,11 +16,12 @@ import {
   StatusDot,
   ProgressName,
   StatusName,
+  DeliveryLink,
 } from './styles';
 
 import formattedDate from '~/utils/formattedDate';
 
-export default function Delivery({ data }) {
+export default function Delivery({ data, navigation }) {
   const dateParsed = data.start_date
     ? format(parseISO(data.start_date), 'dd/MM/yyyy')
     : null;
@@ -53,7 +54,13 @@ export default function Delivery({ data }) {
           <DetailData>{data.recipient.city}</DetailData>
         </Detail>
         <Detail>
-          <LinkStyled>Ver detalhes</LinkStyled>
+          <DeliveryLink
+            onPress={() => {
+              navigation.navigate('DeliveryDetails', { data });
+            }}
+          >
+            <LinkStyled>Ver detalhes</LinkStyled>
+          </DeliveryLink>
         </Detail>
       </DetailsContainer>
     </Container>

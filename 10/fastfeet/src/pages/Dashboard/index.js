@@ -24,7 +24,7 @@ import api from '~/services/api';
 import { signOut } from '~/store/modules/auth/actions';
 import Delivery from '~/components/Delivery';
 
-export default function Dashboard() {
+export default function Dashboard({ navigation }) {
   const dispatch = useDispatch();
   const [profile] = useState(useSelector(state => state.auth.id));
 
@@ -102,15 +102,14 @@ export default function Dashboard() {
       <DeliveriesList
         data={pendingActived ? pending : delivered}
         keyExtractor={item => String(item.id)}
-        renderItem={({ item }) => <Delivery data={item} />}
+        renderItem={({ item }) => (
+          <Delivery data={item} navigation={navigation} />
+        )}
       />
     </Container>
   );
 }
 
 Dashboard.navigationOptions = {
-  tabBarLabel: 'Entregas',
-  tabBarIcon: ({ tintColor }) => (
-    <Icon name="reorder" size={20} color={tintColor} />
-  ),
+  headerShown: false,
 };

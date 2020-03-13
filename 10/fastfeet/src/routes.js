@@ -1,9 +1,13 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import SignIn from './pages/SignIn';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
+import DeliveryDetails from './pages/DeliveryDetails';
 import Profile from './pages/Profile';
 
 export default (signedIn = false) =>
@@ -15,14 +19,38 @@ export default (signedIn = false) =>
         }),
         App: createBottomTabNavigator(
           {
-            Dashboard,
+            Deliveries: {
+              screen: createStackNavigator(
+                {
+                  Dashboard,
+                  DeliveryDetails,
+                },
+                {
+                  defaultNavigationOptions: {
+                    headerTransparent: true,
+                    headerTintColor: '#fff',
+                    headerLeftContainerStyle: {
+                      marginLeft: 20,
+                    },
+                  },
+                }
+              ),
+              navigationOptions: {
+                tabBarLabel: 'Entregas',
+                tabBarIcon: ({ tintColor }) => (
+                  <Icon name="reorder" size={20} color={tintColor} />
+                ),
+              },
+            },
             Profile,
           },
           {
+            resetOnBlur: true,
             tabBarOptions: {
               keyboardHidesTabBar: true,
               activeTintColor: '#7D40E7',
               inactiveTintColor: '#999999',
+              style: { height: 55 },
             },
           }
         ),
