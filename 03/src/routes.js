@@ -56,6 +56,7 @@ routes.post(
 );
 routes.get('/problems', DeliveryProblemsController.index);
 routes.get('/problems/:deliveryId', DeliveryProblemsController.show);
+routes.get('/problems-list/:deliveryId', DeliveryProblemsController.showAll);
 routes.delete('/problems/:problemId', DeliveryProblemsController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);

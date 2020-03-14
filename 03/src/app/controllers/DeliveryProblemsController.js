@@ -32,7 +32,31 @@ class DeliveryProblemsController {
 
     const deliveryWithProblems = await DeliveryProblem.findOne({
       where: { delivery_id: deliveryId },
-      attributes: ['id', 'description'],
+      attributes: ['id', 'description', 'created_at'],
+      include: [
+        {
+          model: Delivery,
+          as: 'delivery',
+          attributes: ['id', 'product', 'start_date', 'canceled_at'],
+        },
+      ],
+    });
+
+    if (!deliveryWithProblems) {
+      return res
+        .status(400)
+        .json({ error: 'This delivery does not have problems' });
+    }
+
+    return res.json(deliveryWithProblems);
+  }
+
+  async showAll(req, res) {
+    const { deliveryId } = req.params;
+
+    const deliveryWithProblems = await DeliveryProblem.findAll({
+      where: { delivery_id: deliveryId },
+      attributes: ['id', 'description', 'created_at'],
       include: [
         {
           model: Delivery,
