@@ -1,4 +1,3 @@
-import * as Yup from 'yup';
 import { parseISO, startOfDay, isBefore } from 'date-fns';
 
 import Delivery from '../models/Delivery';
@@ -8,14 +7,6 @@ import Recipient from '../models/Recipient';
 
 class DeliveryCompletionController {
   async update(req, res) {
-    const schema = Yup.object().shape({
-      end_date: Yup.date().required(),
-    });
-
-    if (!(await schema.isValid(req.body))) {
-      return res.status(400).json({ error: 'Validation fails' });
-    }
-
     const { deliverymanId, deliveryId } = req.params;
 
     const delivery = await Delivery.findByPk(deliveryId);
@@ -57,8 +48,8 @@ class DeliveryCompletionController {
     });
 
     await delivery.update({
-      end_date,
       signature_id: file.id,
+      end_date: new Date(),
     });
 
     await delivery.reload({
@@ -100,7 +91,7 @@ class DeliveryCompletionController {
         {
           model: File,
           as: 'signature',
-          attributes: ['name', 'path'],
+          attributes: ['name', 'path', 'url'],
         },
       ],
     });
