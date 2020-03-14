@@ -1,9 +1,10 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { format } from 'date-fns';
+import { format, formatRelative, parseISO } from 'date-fns';
 
+import pt from 'date-fns/locale/pt';
 import {
   Container,
   Background,
@@ -20,6 +21,8 @@ import {
   ActionText,
 } from './styles';
 
+import api from '~/services/api';
+
 export default function DeliveryDetails({ navigation }) {
   const data = navigation.getParam('data');
 
@@ -31,6 +34,25 @@ export default function DeliveryDetails({ navigation }) {
     data.status = 'Retirada';
   } else {
     data.status = 'Pendente';
+  }
+
+  async function handleDeliveryWithdrawal() {
+    try {
+      await api.put(
+        `deliverymen/${data.deliveryman.id}/withdrawals/${data.id}`,
+        {
+          start_date: new Date(),
+        }
+      );
+    } catch (error) {
+      Alert.alert(
+        'Falha na retirada',
+        'Horário de retirada somente das 08:00 até às 18:00'
+      );
+    } finally {
+      navigation.navigate('Dashboard');
+      console.tron.log(new Date());
+    }
   }
 
   return (
@@ -89,8 +111,8 @@ export default function DeliveryDetails({ navigation }) {
           <Icon name="info-outline" size={24} color="#E7BA40" />
           <ActionText>Visualizar Problemas</ActionText>
         </Action>
-        {!data.end_date ? (
-          <Action>
+        {!data.start_date && !data.end_date ? (
+          <Action onPress={handleDeliveryWithdrawal}>
             <Icon name="check" size={24} color="#82BF18" />
             <ActionText>Fazer a retirada</ActionText>
           </Action>
