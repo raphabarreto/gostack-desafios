@@ -10,6 +10,7 @@ import Dashboard from './pages/Dashboard';
 import DeliveryDetails from './pages/Delivery/DeliveryDetails';
 import DeliveryProblem from './pages/Delivery/DeliveryProblem';
 import DeliveryProblemList from './pages/Delivery/DeliveryProblemList';
+import DeliveryCompletion from './pages/Delivery/DeliveryCompletion';
 import Profile from './pages/Profile';
 
 export default (signedIn = false) =>
@@ -28,6 +29,7 @@ export default (signedIn = false) =>
                   DeliveryDetails,
                   DeliveryProblem,
                   DeliveryProblemList,
+                  DeliveryCompletion,
                 },
                 {
                   defaultNavigationOptions: {

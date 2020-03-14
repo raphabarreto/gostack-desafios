@@ -125,7 +125,11 @@ export default function DeliveryDetails({ navigation }) {
             <ActionText>Fazer a retirada</ActionText>
           </Action>
         ) : (
-            <Action>
+            <Action
+              onPress={() => {
+                navigation.navigate('DeliveryCompletion', { data });
+              }}
+            >
               <Icon name="alarm-on" size={24} color="#7D40E7" />
               <ActionText>Confirmar Entrega</ActionText>
             </Action>
