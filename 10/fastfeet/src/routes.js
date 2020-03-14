@@ -9,6 +9,7 @@ import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
 import DeliveryDetails from './pages/Delivery/DeliveryDetails';
 import DeliveryProblem from './pages/Delivery/DeliveryProblem';
+import DeliveryProblemList from './pages/Delivery/DeliveryProblemList';
 import Profile from './pages/Profile';
 
 export default (signedIn = false) =>
@@ -26,6 +27,7 @@ export default (signedIn = false) =>
                   Dashboard,
                   DeliveryDetails,
                   DeliveryProblem,
+                  DeliveryProblemList,
                 },
                 {
                   defaultNavigationOptions: {

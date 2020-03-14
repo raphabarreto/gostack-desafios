@@ -54,7 +54,7 @@ DeliveryProblem.navigationOptions = ({ navigation }) => ({
         navigation.goBack();
       }}
     >
-      <Icon name="chevron-left" size={20} color="#fff" />
+      <Icon name="chevron-left" size={30} color="#fff" />
     </TouchableOpacity>
   ),
 });

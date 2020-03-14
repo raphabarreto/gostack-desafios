@@ -111,7 +111,11 @@ export default function DeliveryDetails({ navigation }) {
           <Icon name="highlight-off" size={24} color="#E74040" />
           <ActionText>Informar Problema</ActionText>
         </Action>
-        <Action>
+        <Action
+          onPress={() => {
+            navigation.navigate('DeliveryProblemList', { data });
+          }}
+        >
           <Icon name="info-outline" size={24} color="#E7BA40" />
           <ActionText>Visualizar Problemas</ActionText>
         </Action>
