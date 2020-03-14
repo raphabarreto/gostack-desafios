@@ -103,7 +103,11 @@ export default function DeliveryDetails({ navigation }) {
         </DeliveryInfo>
       </DeliveryContainer>
       <ActionsContainer>
-        <Action>
+        <Action
+          onPress={() => {
+            navigation.navigate('DeliveryProblem', { data });
+          }}
+        >
           <Icon name="highlight-off" size={24} color="#E74040" />
           <ActionText>Informar Problema</ActionText>
         </Action>
@@ -129,7 +133,6 @@ export default function DeliveryDetails({ navigation }) {
 
 DeliveryDetails.navigationOptions = ({ navigation }) => ({
   title: 'Detalhes da encomenda',
-
   headerLeft: () => (
     <TouchableOpacity
       onPress={() => {

@@ -7,7 +7,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
-import DeliveryDetails from './pages/DeliveryDetails';
+import DeliveryDetails from './pages/Delivery/DeliveryDetails';
+import DeliveryProblem from './pages/Delivery/DeliveryProblem';
 import Profile from './pages/Profile';
 
 export default (signedIn = false) =>
@@ -19,11 +20,12 @@ export default (signedIn = false) =>
         }),
         App: createBottomTabNavigator(
           {
-            Deliveries: {
+            Delivery: {
               screen: createStackNavigator(
                 {
                   Dashboard,
                   DeliveryDetails,
+                  DeliveryProblem,
                 },
                 {
                   defaultNavigationOptions: {
