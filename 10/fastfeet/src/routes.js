@@ -43,7 +43,6 @@ export default (signedIn = false) =>
                 {
                   defaultNavigationOptions: {
                     headerTransparent: true,
-                    headerShown: false,
                     headerStyle: {
                       backgroundColor: '#7159c1',
                     },
