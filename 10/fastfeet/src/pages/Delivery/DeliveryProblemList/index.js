@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import PropTypes from 'prop-types';
+
 import {
   Container,
   Background,
@@ -59,3 +61,10 @@ DeliveryProblemList.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+DeliveryProblemList.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};

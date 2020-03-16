@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { format, formatRelative, parseISO } from 'date-fns';
+import PropTypes from 'prop-types';
 
-import pt from 'date-fns/locale/pt';
+import { format } from 'date-fns';
+
 import {
   Container,
   Background,
@@ -125,15 +126,15 @@ export default function DeliveryDetails({ navigation }) {
             <ActionText>Fazer a retirada</ActionText>
           </Action>
         ) : (
-            <Action
-              onPress={() => {
-                navigation.navigate('DeliveryCompletion', { data });
-              }}
-            >
-              <Icon name="alarm-on" size={24} color="#7D40E7" />
-              <ActionText>Confirmar Entrega</ActionText>
-            </Action>
-          )}
+          <Action
+            onPress={() => {
+              navigation.navigate('DeliveryCompletion', { data });
+            }}
+          >
+            <Icon name="alarm-on" size={24} color="#7D40E7" />
+            <ActionText>Confirmar Entrega</ActionText>
+          </Action>
+        )}
       </ActionsContainer>
     </Container>
   );
@@ -151,3 +152,10 @@ DeliveryDetails.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+DeliveryDetails.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};

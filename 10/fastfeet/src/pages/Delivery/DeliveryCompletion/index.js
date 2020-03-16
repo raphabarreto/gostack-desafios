@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
+import PropTypes from 'prop-types';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -115,3 +117,10 @@ DeliveryCompletion.navigationOptions = ({ navigation }) => ({
     </TouchableOpacity>
   ),
 });
+
+DeliveryCompletion.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    getParam: PropTypes.func.isRequired,
+  }).isRequired,
+};
