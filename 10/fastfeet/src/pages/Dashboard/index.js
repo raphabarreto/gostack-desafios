@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { withNavigationFocus } from 'react-navigation';
+
+import PropTypes from 'prop-types';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -24,7 +27,7 @@ import api from '~/services/api';
 import { signOut } from '~/store/modules/auth/actions';
 import Delivery from '~/components/Delivery';
 
-export default function Dashboard({ navigation }) {
+function Dashboard({ isFocused, navigation }) {
   const dispatch = useDispatch();
   const [profile] = useState(useSelector(state => state.auth.id));
 
@@ -35,24 +38,12 @@ export default function Dashboard({ navigation }) {
 
   async function loadPending(id) {
     const response = await api.get(`deliveryman/${id}/progress`);
-
     setPending(response.data);
   }
 
   async function loadDelivered(id) {
     const response = await api.get(`deliveryman/${id}/deliveries`);
-
     setDelivered(response.data);
-  }
-
-  useEffect(() => {
-    loadPending(profile.id);
-  }, [profile.id]);
-
-  function handlePending() {
-    loadPending(profile.id);
-    setDeliveredActived(false);
-    setPendingActived(true);
   }
 
   function handleFinished() {
@@ -60,6 +51,18 @@ export default function Dashboard({ navigation }) {
     setDeliveredActived(true);
     setPendingActived(false);
   }
+
+  const handlePending = useCallback(() => {
+    loadPending(profile.id);
+    setDeliveredActived(false);
+    setPendingActived(true);
+  }, [profile.id]);
+
+  useEffect(() => {
+    if (isFocused) {
+      handlePending();
+    }
+  }, [handlePending, isFocused]);
 
   function handleLogout() {
     dispatch(signOut());
@@ -113,3 +116,12 @@ export default function Dashboard({ navigation }) {
 Dashboard.navigationOptions = {
   headerShown: false,
 };
+
+Dashboard.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
+export default withNavigationFocus(Dashboard);
