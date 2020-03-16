@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
 
 import SignIn from './pages/SignIn';
 import Dashboard from './pages/Dashboard';
@@ -12,6 +13,14 @@ import DeliveryProblem from './pages/Delivery/DeliveryProblem';
 import DeliveryProblemList from './pages/Delivery/DeliveryProblemList';
 import DeliveryCompletion from './pages/Delivery/DeliveryCompletion';
 import Profile from './pages/Profile';
+
+function tabBarIcon({ tintColor }) {
+  return <Icon name="reorder" size={20} color={tintColor} />;
+}
+
+tabBarIcon.propTypes = {
+  tintColor: PropTypes.string.isRequired,
+};
 
 export default (signedIn = false) =>
   createAppContainer(
@@ -34,19 +43,21 @@ export default (signedIn = false) =>
                 {
                   defaultNavigationOptions: {
                     headerTransparent: true,
+                    headerShown: false,
+                    headerStyle: {
+                      backgroundColor: '#7159c1',
+                    },
                     headerTintColor: '#fff',
                     headerLeftContainerStyle: {
                       marginLeft: 20,
                     },
                   },
+                  navigationOptions: {
+                    tabBarLabel: 'Entregas',
+                    tabBarIcon,
+                  },
                 }
               ),
-              navigationOptions: {
-                tabBarLabel: 'Entregas',
-                tabBarIcon: ({ tintColor }) => (
-                  <Icon name="reorder" size={20} color={tintColor} />
-                ),
-              },
             },
             Profile,
           },
