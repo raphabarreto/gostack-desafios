@@ -42,7 +42,7 @@ export default function Profile() {
 }
 
 function tabBarIcon({ tintColor }) {
-  return <Icon name="person" size={20} color={tintColor} />;
+  return <Icon name="person" size={25} color={tintColor} />;
 }
 
 Profile.navigationOptions = {

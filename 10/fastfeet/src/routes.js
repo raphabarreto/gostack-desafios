@@ -15,7 +15,7 @@ import DeliveryCompletion from './pages/Delivery/DeliveryCompletion';
 import Profile from './pages/Profile';
 
 function tabBarIcon({ tintColor }) {
-  return <Icon name="reorder" size={20} color={tintColor} />;
+  return <Icon name="reorder" size={25} color={tintColor} />;
 }
 
 tabBarIcon.propTypes = {
