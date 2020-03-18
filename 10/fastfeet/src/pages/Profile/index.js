@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { StatusBar } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
@@ -9,7 +11,7 @@ import formattedDate from '~/utils/formattedDate';
 
 import { Container, Avatar, Title, Info, LogoutButton } from './styles';
 
-export default function Profile() {
+function Profile({ isFocused }) {
   const dispatch = useDispatch();
 
   const [profile] = useState(useSelector(state => state.auth.id));
@@ -21,6 +23,13 @@ export default function Profile() {
   function handleLogout() {
     dispatch(signOut());
   }
+
+  useEffect(() => {
+    if (isFocused) {
+      StatusBar.setBarStyle('dark-content');
+      StatusBar.setBackgroundColor('#fff');
+    }
+  }, [isFocused]);
 
   return (
     <Container>
@@ -50,6 +59,10 @@ Profile.navigationOptions = {
   tabBarIcon,
 };
 
+Profile.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
+};
+
 tabBarIcon.propTypes = {
   tintColor: PropTypes.string,
 };
@@ -57,3 +70,5 @@ tabBarIcon.propTypes = {
 tabBarIcon.defaultProps = {
   tintColor: '#fff',
 };
+
+export default withNavigationFocus(Profile);
