@@ -7,7 +7,7 @@ import logo from '~/assets/logo.png';
 import { Container, Form, FormInput, SubmitButton } from './styles';
 import { signInRequest } from '~/store/modules/auth/actions';
 
-export default function SignIn({ navigation }) {
+export default function SignIn() {
   const dispatch = useDispatch();
 
   const [id, setId] = useState('');
