@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { format } from 'date-fns';
 import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import PropTypes from 'prop-types';
 
-import { format } from 'date-fns';
+import api from '~/services/api';
+
+import formattedDate from '~/utils/formattedDate';
 
 import {
   Container,
@@ -22,10 +24,16 @@ import {
   ActionText,
 } from './styles';
 
-import api from '~/services/api';
-
 export default function DeliveryDetails({ navigation }) {
   const data = navigation.getParam('data');
+
+  const startDateParsed = useMemo(() => {
+    return formattedDate(data.start_date);
+  }, [data.start_date]);
+
+  const endDateParsed = useMemo(() => {
+    return formattedDate(data.end_date);
+  }, [data.end_date]);
 
   if (data.end_date) {
     data.status = 'Entregue';
@@ -90,16 +98,8 @@ export default function DeliveryDetails({ navigation }) {
             <Title>Data de entrega</Title>
           </DateContainer>
           <DateContainer>
-            <Info>
-              {data.start_date
-                ? format(new Date(data.start_date), 'dd/MM/yyyy')
-                : '--/--/--'}
-            </Info>
-            <Info>
-              {data.end_date
-                ? format(new Date(data.end_date), 'dd/MM/yyyy')
-                : '--/--/--'}
-            </Info>
+            <Info>{data.start_date ? startDateParsed : '--/--/--'}</Info>
+            <Info>{data.end_date ? endDateParsed : '--/--/--'}</Info>
           </DateContainer>
         </DeliveryInfo>
       </DeliveryContainer>
@@ -126,15 +126,15 @@ export default function DeliveryDetails({ navigation }) {
             <ActionText>Fazer a retirada</ActionText>
           </Action>
         ) : (
-          <Action
-            onPress={() => {
-              navigation.navigate('DeliveryCompletion', { data });
-            }}
-          >
-            <Icon name="alarm-on" size={24} color="#7D40E7" />
-            <ActionText>Confirmar Entrega</ActionText>
-          </Action>
-        )}
+            <Action
+              onPress={() => {
+                navigation.navigate('DeliveryCompletion', { data });
+              }}
+            >
+              <Icon name="alarm-on" size={24} color="#7D40E7" />
+              <ActionText>Confirmar Entrega</ActionText>
+            </Action>
+          )}
       </ActionsContainer>
     </Container>
   );

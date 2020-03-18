@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import PropTypes from 'prop-types';
 
 import { signOut } from '~/store/modules/auth/actions';
 
-import { Container, Avatar, Title, Info, LogoutButton } from './styles';
 import formattedDate from '~/utils/formattedDate';
+
+import { Container, Avatar, Title, Info, LogoutButton } from './styles';
 
 export default function Profile() {
   const dispatch = useDispatch();
