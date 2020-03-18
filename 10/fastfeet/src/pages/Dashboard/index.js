@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { StatusBar } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -59,6 +60,7 @@ function Dashboard({ isFocused, navigation }) {
 
   useEffect(() => {
     if (isFocused) {
+      StatusBar.setBackgroundColor('#fff');
       handlePending();
     }
   }, [handlePending, isFocused]);
