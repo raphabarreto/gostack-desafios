@@ -42,6 +42,7 @@ export default (signedIn = false) =>
                 },
                 {
                   defaultNavigationOptions: {
+                    headerTitleAlign: 'center',
                     headerTransparent: true,
                     headerStyle: {
                       backgroundColor: '#7159c1',
