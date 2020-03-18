@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import PropTypes from 'prop-types';
+
+import api from '~/services/api';
 
 import {
   Container,
@@ -13,18 +14,22 @@ import {
   SubmitButton,
 } from './styles';
 
-import api from '~/services/api';
-
 export default function DeliveryProblem({ navigation }) {
   const [problem, setProblem] = useState('');
 
   const delivery = navigation.getParam('data');
 
   async function handleSubmit() {
-    await api.post(`deliveries/${delivery.id}/problems`, {
-      description: problem,
-    });
-    setProblem('');
+    try {
+      await api.post(`deliveries/${delivery.id}/problems`, {
+        description: problem,
+      });
+      Alert.alert('Sucesso', 'Problema informado com sucesso!');
+    } catch (error) {
+      Alert.alert('Falha', 'Erro ao informar problema, tente mais tarde.');
+    } finally {
+      setProblem('');
+    }
   }
 
   return (
