@@ -1,19 +1,20 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withNavigationFocus } from 'react-navigation';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import api from '~/services/api';
 
 import {
   Container,
   Header,
-  ContentHeader,
+  HeaderContent,
   Avatar,
   Welcome,
-  Title,
+  TitleWelcomeBack,
   Name,
+  TitleDelivery,
   Logout,
   LogoutButton,
   Actions,
@@ -21,8 +22,6 @@ import {
   StatusText,
   DeliveriesList,
 } from './styles';
-
-import api from '~/services/api';
 
 import { signOut } from '~/store/modules/auth/actions';
 import Delivery from '~/components/Delivery';
@@ -32,7 +31,7 @@ function Dashboard({ isFocused, navigation }) {
   const [profile] = useState(useSelector(state => state.auth.id));
 
   const [pendingActived, setPendingActived] = useState(true);
-  const [deliveredActived, setDeliveredActived] = useState();
+  const [deliveredActived, setDeliveredActived] = useState(false);
   const [pending, setPending] = useState([]);
   const [delivered, setDelivered] = useState([]);
 
@@ -46,10 +45,10 @@ function Dashboard({ isFocused, navigation }) {
     setDelivered(response.data);
   }
 
-  function handleFinished() {
+  function handleDelivered() {
+    setPendingActived(false);
     loadDelivered(profile.id);
     setDeliveredActived(true);
-    setPendingActived(false);
   }
 
   const handlePending = useCallback(() => {
@@ -70,17 +69,17 @@ function Dashboard({ isFocused, navigation }) {
   return (
     <Container>
       <Header>
-        <ContentHeader>
+        <HeaderContent>
           <Avatar
             source={{
               uri: profile.avatar.url,
             }}
           />
           <Welcome>
-            <Title>Bem vindo de volta,</Title>
+            <TitleWelcomeBack>Bem vindo de volta,</TitleWelcomeBack>
             <Name>{profile.name}</Name>
           </Welcome>
-        </ContentHeader>
+        </HeaderContent>
 
         <Logout>
           <LogoutButton onPress={handleLogout}>
@@ -90,13 +89,13 @@ function Dashboard({ isFocused, navigation }) {
       </Header>
 
       <Header>
-        <Name>Entregas</Name>
+        <TitleDelivery>Entregas</TitleDelivery>
         <Actions>
           <StatusButton onPress={handlePending}>
             <StatusText active={pendingActived}>Pendentes</StatusText>
           </StatusButton>
 
-          <StatusButton onPress={handleFinished}>
+          <StatusButton onPress={handleDelivered}>
             <StatusText active={deliveredActived}>Entregues</StatusText>
           </StatusButton>
         </Actions>

@@ -6,29 +6,27 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  display: flex;
   margin: 25px 15px;
   flex-direction: row;
   justify-content: space-between;
 `;
 
-export const ContentHeader = styled.View`
+export const HeaderContent = styled.View`
   display: flex;
   align-items: center;
   flex-direction: row;
 `;
 
 export const Avatar = styled.Image`
-  height: 68px;
-  width: 68px;
-  border-radius: 32px;
-  flex-direction: row;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
   margin-right: 15px;
 `;
 
 export const Welcome = styled.View``;
 
-export const Title = styled.Text`
+export const TitleWelcomeBack = styled.Text`
   color: #666666;
   font-size: 12px;
 `;
@@ -37,9 +35,12 @@ export const Name = styled.Text`
   color: #444444;
   font-size: 22px;
   font-weight: bold;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
+`;
+
+export const TitleDelivery = styled.Text`
+  color: #444444;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 export const Logout = styled.View`
@@ -62,7 +63,6 @@ export const StatusText = styled.Text`
   margin-top: 7px;
   font-size: 12px;
   font-weight: bold;
-
   color: ${props => (props.active ? '#7D40E7' : '#999')};
   text-decoration: ${props => (props.active ? 'underline #7D40E7' : 'none')};
 `;
