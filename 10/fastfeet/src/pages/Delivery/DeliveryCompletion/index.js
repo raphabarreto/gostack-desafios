@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { TouchableOpacity, Alert } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import api from '~/services/api';
 
 import {
   Container,
@@ -15,8 +15,6 @@ import {
   SendButton,
   View,
 } from './styles';
-
-import api from '~/services/api';
 
 export default function DeliveryCompletion({ navigation }) {
   const [cameraCurrent, setCameraCurrent] = useState();
@@ -57,7 +55,6 @@ export default function DeliveryCompletion({ navigation }) {
           },
         }
       );
-
       Alert.alert(
         'Sucesso',
         'Assinatura enviada com sucesso',
@@ -65,7 +62,7 @@ export default function DeliveryCompletion({ navigation }) {
         { cancelable: false }
       );
     } catch (err) {
-      Alert.alert('Falha', 'Erro ao enviar, tente mais tarde.');
+      Alert.alert('Falha', 'Erro ao capturar assinatura, tente novamente.');
     }
   }
 
@@ -86,9 +83,9 @@ export default function DeliveryCompletion({ navigation }) {
             flashMode={RNCamera.Constants.FlashMode.off}
             androidCameraPermissionOptions={{
               title: 'Permissão para usar a câmera',
-              message: 'Precisamos da sua permissão para usar a câmera.',
-              buttonPositive: 'Ok',
-              buttonNegative: 'Cancel',
+              message: 'Este app necessita da câmera para esta funcionalidade.',
+              buttonPositive: 'Permitir',
+              buttonNegative: 'Cancelar',
             }}
             captureAudio={false}
           />
