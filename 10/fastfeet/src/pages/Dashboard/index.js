@@ -60,6 +60,7 @@ function Dashboard({ isFocused, navigation }) {
 
   useEffect(() => {
     if (isFocused) {
+      StatusBar.setBarStyle('dark-content');
       StatusBar.setBackgroundColor('#fff');
       handlePending();
     }

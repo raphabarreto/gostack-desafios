@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react';
-import { TouchableOpacity, Alert } from 'react-native';
+import React, { useEffect, useMemo } from 'react';
+import { StatusBar, TouchableOpacity, Alert } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PropTypes from 'prop-types';
 
@@ -23,7 +24,7 @@ import {
   ActionText,
 } from './styles';
 
-export default function DeliveryDetails({ navigation }) {
+function DeliveryDetails({ isFocused, navigation }) {
   const data = navigation.getParam('data');
 
   const startDateParsed = useMemo(() => {
@@ -43,6 +44,13 @@ export default function DeliveryDetails({ navigation }) {
   } else {
     data.status = 'Pendente';
   }
+
+  useEffect(() => {
+    if (isFocused) {
+      StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#7d40e7');
+    }
+  }, [isFocused]);
 
   async function handleDeliveryWithdrawal() {
     try {
@@ -125,15 +133,15 @@ export default function DeliveryDetails({ navigation }) {
             <ActionText>Fazer a retirada</ActionText>
           </Action>
         ) : (
-          <Action
-            onPress={() => {
-              navigation.navigate('DeliveryCompletion', { data });
-            }}
-          >
-            <Icon name="alarm-on" size={24} color="#7D40E7" />
-            <ActionText>Confirmar Entrega</ActionText>
-          </Action>
-        )}
+            <Action
+              onPress={() => {
+                navigation.navigate('DeliveryCompletion', { data });
+              }}
+            >
+              <Icon name="alarm-on" size={24} color="#7D40E7" />
+              <ActionText>Confirmar Entrega</ActionText>
+            </Action>
+          )}
       </ActionsContainer>
     </Container>
   );
@@ -158,3 +166,5 @@ DeliveryDetails.propTypes = {
     getParam: PropTypes.func.isRequired,
   }).isRequired,
 };
+
+export default withNavigationFocus(DeliveryDetails);
