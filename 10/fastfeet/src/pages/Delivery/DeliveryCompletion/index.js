@@ -25,7 +25,13 @@ export default function DeliveryCompletion({ navigation }) {
 
   async function handleTakeSignature() {
     try {
-      const options = { quality: 0.5, base64: true };
+      const options = {
+        quality: 0.8,
+        base64: false,
+        width: 800,
+        forceUpOrientation: true,
+        fixOrientation: true,
+      };
       const { uri } = await cameraCurrent.takePictureAsync(options);
 
       setPhoto(uri);
