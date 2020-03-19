@@ -133,15 +133,15 @@ function DeliveryDetails({ isFocused, navigation }) {
             <ActionText>Fazer a retirada</ActionText>
           </Action>
         ) : (
-            <Action
-              onPress={() => {
-                navigation.navigate('DeliveryCompletion', { data });
-              }}
-            >
-              <Icon name="alarm-on" size={24} color="#7D40E7" />
-              <ActionText>Confirmar Entrega</ActionText>
-            </Action>
-          )}
+          <Action
+            onPress={() => {
+              navigation.navigate('DeliveryCompletion', { data });
+            }}
+          >
+            <Icon name="alarm-on" size={24} color="#7D40E7" />
+            <ActionText>Confirmar Entrega</ActionText>
+          </Action>
+        )}
       </ActionsContainer>
     </Container>
   );
@@ -161,6 +161,7 @@ DeliveryDetails.navigationOptions = ({ navigation }) => ({
 });
 
 DeliveryDetails.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
     getParam: PropTypes.func.isRequired,
