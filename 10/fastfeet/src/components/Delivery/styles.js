@@ -3,9 +3,8 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   background: #fff;
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 30px;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
 export const TitleContainer = styled.View`
@@ -23,8 +22,11 @@ export const Title = styled.Text`
 
 export const DetailsContainer = styled.View`
   flex-direction: row;
-  padding: 20px 10px;
+  padding: 15px 15px;
+  margin-top: 10px;
   background-color: #f1f3ff;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
   align-items: center;
 `;
 
@@ -40,13 +42,14 @@ export const Subtitle = styled.Text`
   font-weight: bold;
 `;
 
-export const DetailData = styled.Text`
+export const DetailInfo = styled.Text`
   color: #444444;
   font-size: 12px;
   font-weight: bold;
 `;
 
 export const LinkStyled = styled.Text`
+  margin-top: 10px;
   color: #7d40e7;
   font-size: 12px;
   font-weight: bold;

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
-import { format, parseISO } from 'date-fns';
+import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -10,7 +9,7 @@ import {
   DetailsContainer,
   Detail,
   Subtitle,
-  DetailData,
+  DetailInfo,
   LinkStyled,
   ProgressContainer,
   StatusDot,
@@ -22,9 +21,13 @@ import {
 import formattedDate from '~/utils/formattedDate';
 
 export default function Delivery({ data, navigation }) {
-  const dateParsed = data.start_date
-    ? format(parseISO(data.start_date), 'dd/MM/yyyy')
-    : null;
+  const startDateParsed = useMemo(() => {
+    return data.start_date ? formattedDate(data.start_date) : null;
+  }, [data.start_date]);
+
+  const endDateParsed = useMemo(() => {
+    return data.end_date ? formattedDate(data.end_date) : null;
+  }, [data.end_date]);
 
   return (
     <Container>
@@ -35,8 +38,8 @@ export default function Delivery({ data, navigation }) {
 
       <ProgressContainer>
         <StatusDot active />
-        <StatusDot active={dateParsed} />
-        <StatusDot active={data.end_date} />
+        <StatusDot active={startDateParsed} />
+        <StatusDot active={endDateParsed} />
       </ProgressContainer>
       <ProgressName>
         <StatusName>Aguardando Retirada</StatusName>
@@ -47,11 +50,11 @@ export default function Delivery({ data, navigation }) {
       <DetailsContainer>
         <Detail>
           <Subtitle>Data</Subtitle>
-          <DetailData>{data.start_date ? dateParsed : '-'}</DetailData>
+          <DetailInfo>{data.start_date ? startDateParsed : '-'}</DetailInfo>
         </Detail>
         <Detail>
           <Subtitle>Cidade</Subtitle>
-          <DetailData>{data.recipient.city}</DetailData>
+          <DetailInfo>{data.recipient.city}</DetailInfo>
         </Detail>
         <Detail>
           <DeliveryLink
@@ -66,3 +69,21 @@ export default function Delivery({ data, navigation }) {
     </Container>
   );
 }
+
+Delivery.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    start_date: PropTypes.string,
+    end_date: PropTypes.string,
+    recipient: PropTypes.shape({
+      city: PropTypes.string.isRequired,
+    }),
+  }),
+};
+
+Delivery.defaultProps = {
+  data: null,
+};
