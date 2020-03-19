@@ -71,6 +71,10 @@ function DeliveryDetails({ isFocused, navigation }) {
     }
   }
 
+  function handleDeliveryAlreadyCompleted() {
+    Alert.alert('Erro', 'Esta encomenda já foi confirmada!');
+  }
+
   return (
     <Container>
       <Background />
@@ -135,7 +139,11 @@ function DeliveryDetails({ isFocused, navigation }) {
         ) : (
           <Action
             onPress={() => {
-              navigation.navigate('DeliveryCompletion', { data });
+              if (!data.end_date) {
+                navigation.navigate('DeliveryCompletion', { data });
+              } else {
+                handleDeliveryAlreadyCompleted();
+              }
             }}
           >
             <Icon name="alarm-on" size={24} color="#7D40E7" />
