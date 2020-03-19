@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import { Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StatusBar, Image } from 'react-native';
+import { withNavigationFocus } from 'react-navigation';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import logo from '~/assets/logo.png';
 
 import { Container, Form, FormInput, SubmitButton } from './styles';
 import { signInRequest } from '~/store/modules/auth/actions';
 
-export default function SignIn() {
+function SignIn({ isFocused }) {
   const dispatch = useDispatch();
 
   const [id, setId] = useState('');
@@ -17,6 +19,13 @@ export default function SignIn() {
   function handleSumbmit() {
     dispatch(signInRequest(id));
   }
+
+  useEffect(() => {
+    if (isFocused) {
+      StatusBar.setBarStyle('light-content');
+      StatusBar.setBackgroundColor('#7d40e7');
+    }
+  }, [isFocused]);
 
   return (
     <Container>
@@ -39,3 +48,9 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default withNavigationFocus(SignIn);
+
+SignIn.propTypes = {
+  isFocused: PropTypes.bool.isRequired,
+};
