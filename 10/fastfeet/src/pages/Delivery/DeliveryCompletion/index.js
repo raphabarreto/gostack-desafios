@@ -30,8 +30,6 @@ export default function DeliveryCompletion({ navigation }) {
 
       setPhoto(uri);
       setVisible(false);
-
-      console.tron.log(photo);
     } catch (err) {
       Alert.alert('Falha', 'Captura da foto falhou.');
     }
