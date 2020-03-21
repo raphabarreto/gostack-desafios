@@ -48,7 +48,7 @@ export const Logout = styled.View`
 `;
 
 export const LogoutButton = styled(RectButton)`
-  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const Actions = styled.View`
