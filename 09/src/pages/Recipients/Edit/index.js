@@ -51,6 +51,7 @@ export default function RecipientEdit({ location }) {
     } catch (err) {
       toast.error('Falha no cadastro do destinatário!');
     } finally {
+      history.push('/recipients');
       toast.success('Destinatário salvo com sucesso!');
     }
   }
