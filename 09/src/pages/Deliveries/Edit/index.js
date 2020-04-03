@@ -17,6 +17,12 @@ import {
   FormContainer,
 } from './styles';
 
+const schema = Yup.object().shape({
+  product: Yup.string().required('O nome do produto é obrigatório'),
+  recipient: Yup.string().required('O destinatário é obrigatório'),
+  deliveryman: Yup.string().required('O entregador é obrigatório'),
+});
+
 export default function DeliveryEdit({ location }) {
   const [delivery] = useState(location.state.delivery);
 
@@ -90,7 +96,12 @@ export default function DeliveryEdit({ location }) {
         </SaveButton>
       </Header>
       <FormContainer>
-        <Form initialData={delivery} onSubmit={handleSubmit} id="form-register">
+        <Form
+          schema={schema}
+          initialData={delivery}
+          onSubmit={handleSubmit}
+          id="form-register"
+        >
           <div className="firstLine">
             <span>
               Destinatário

@@ -61,4 +61,11 @@ export const FormContainer = styled.div`
     border: 1px solid #dddddd;
     border-radius: 5px;
   }
+
+  span {
+    color: #fb6c91;
+    display: block;
+    font-weight: bold;
+    margin: 0 20px;
+  }
 `;
