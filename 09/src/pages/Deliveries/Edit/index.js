@@ -19,8 +19,6 @@ import {
 
 const schema = Yup.object().shape({
   product: Yup.string().required('O nome do produto é obrigatório'),
-  recipient: Yup.string().required('O destinatário é obrigatório'),
-  deliveryman: Yup.string().required('O entregador é obrigatório'),
 });
 
 export default function DeliveryEdit({ location }) {
@@ -79,6 +77,7 @@ export default function DeliveryEdit({ location }) {
     } catch (err) {
       toast.error('Falha no cadastro da encomenda!');
     } finally {
+      history.push('/deliveries');
       toast.success('Encomenda salva com sucesso!');
     }
   }
@@ -97,8 +96,8 @@ export default function DeliveryEdit({ location }) {
       </Header>
       <FormContainer>
         <Form
-          schema={schema}
           initialData={delivery}
+          schema={schema}
           onSubmit={handleSubmit}
           id="form-register"
         >
@@ -108,7 +107,8 @@ export default function DeliveryEdit({ location }) {
               <Select
                 name="recipient_id"
                 options={recipients}
-                placeholder={delivery.recipient.name}
+                value={delivery.recipient.name}
+                disabled
               />
             </span>
             <span>
@@ -116,7 +116,8 @@ export default function DeliveryEdit({ location }) {
               <Select
                 name="deliveryman_id"
                 options={deliverymen}
-                placeholder={delivery.deliveryman.name}
+                value={delivery.deliveryman.id}
+                disabled
               />
             </span>
           </div>

@@ -51,6 +51,10 @@ export const FormContainer = styled.div`
     margin: 20px 25px;
     font-weight: bold;
     color: #444444;
+
+    span {
+      color: #fb6c91;
+    }
   }
 
   label {

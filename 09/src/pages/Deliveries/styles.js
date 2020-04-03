@@ -195,7 +195,7 @@ export const View = styled.div`
   top: 0;
   left: 0;
   width: 400px;
-  height: 350px;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -255,7 +255,7 @@ export const View = styled.div`
 
   img {
     width: 240px;
-    height: 110px;
+    height: 150px;
     margin: 5px 70px;
   }
 `;

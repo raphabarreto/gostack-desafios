@@ -77,6 +77,7 @@ export default function DeliveryRegister() {
     } catch (err) {
       toast.error('Falha no cadastro da encomenda!');
     } finally {
+      history.push('/deliveries');
       toast.success('Encomenda salva com sucesso!');
     }
   }
