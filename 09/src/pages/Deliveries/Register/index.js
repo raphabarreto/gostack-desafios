@@ -17,6 +17,12 @@ import {
   FormContainer,
 } from './styles';
 
+const schema = Yup.object().shape({
+  product: Yup.string().required('O nome do produto é obrigatório'),
+  recipient: Yup.string().required('O destinatário é obrigatório'),
+  deliveryman: Yup.string().required('O entregador é obrigatório'),
+});
+
 export default function DeliveryRegister() {
   const [recipients, setRecipients] = useState([]);
   const [deliverymen, setDeliverymen] = useState([]);
@@ -88,19 +94,20 @@ export default function DeliveryRegister() {
         </SaveButton>
       </Header>
       <FormContainer>
-        <Form onSubmit={handleSubmit} id="form-register">
+        <Form schema={schema} onSubmit={handleSubmit} id="form-register">
           <div className="firstLine">
-            <span>
+            <span className="span-form">
               Destinatário
               <Select name="recipient" options={recipients} />
             </span>
-            <span>
+            <span className="span-form">
               Entregador
               <Select name="deliveryman" options={deliverymen} />
             </span>
           </div>
-          <span>
-            Nome do produto
+
+          <span className="span-form">
+            <p>Nome do produto</p>
             <Input name="product" />
           </span>
         </Form>

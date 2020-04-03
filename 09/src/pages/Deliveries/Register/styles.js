@@ -45,12 +45,23 @@ export const FormContainer = styled.div`
   margin-top: 20px;
   border-radius: 5px;
   background: #ffffff;
-  height: 250px;
+  height: 300px;
 
-  span {
-    margin: 20px 25px;
+  .span-form {
+    margin: 20px auto;
     font-weight: bold;
     color: #444444;
+  }
+
+  span {
+    color: #fb6c91;
+    display: block;
+    font-weight: bold;
+    margin: 10px 10px;
+  }
+
+  span > p {
+    margin-left: 25px;
   }
 
   label {
