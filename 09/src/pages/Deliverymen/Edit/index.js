@@ -40,6 +40,7 @@ export default function DeliverymanEdit({ location }) {
     } catch (err) {
       toast.error('Falha no cadastro do entregador!');
     } finally {
+      history.push('/deliverymen');
       toast.success('Entregador salvo com sucesso!');
     }
   }

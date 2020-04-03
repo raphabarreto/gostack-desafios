@@ -90,7 +90,8 @@ export const DeliverymenTable = styled.table`
   }
 
   td > img {
-    width: 20%;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
   }
 
