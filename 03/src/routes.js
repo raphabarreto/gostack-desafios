@@ -49,7 +49,6 @@ routes.put(
   DeliveryCompletionController.update
 );
 
-// Problemas
 routes.post(
   '/deliveries/:deliveryId/problems',
   DeliveryProblemsController.store
@@ -73,7 +72,6 @@ routes.put('/recipients/:recipientId', RecipientController.update);
 routes.delete('/recipients/:recipientId', RecipientController.delete);
 
 routes.get('/deliverymen', DeliverymanController.index);
-
 routes.post('/deliverymen/', DeliverymanController.store);
 routes.put('/deliverymen/:deliverymanId', DeliverymanController.update);
 routes.delete('/deliverymen/:deliverymanId', DeliverymanController.delete);
