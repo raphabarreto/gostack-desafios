@@ -26,8 +26,8 @@ const schema = Yup.object().shape({
 export default function DeliveryRegister() {
   const [recipients, setRecipients] = useState([]);
   const [deliverymen, setDeliverymen] = useState([]);
-  const [qRecipients, setQRecipients] = useState('');
-  const [qDeliverymen, setQDeliverymen] = useState('');
+  const [qRecipients] = useState('');
+  const [qDeliverymen] = useState('');
 
   useEffect(() => {
     async function loadRecipients() {

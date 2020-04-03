@@ -17,7 +17,7 @@ import {
 
 export default function Problems() {
   const [problems, setProblems] = useState([]);
-  const [q, setQ] = useState('');
+  const [q] = useState('');
 
   const [view, setView] = useState(false);
   const [problemView, setProblemView] = useState({});

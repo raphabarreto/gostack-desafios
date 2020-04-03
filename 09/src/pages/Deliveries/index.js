@@ -47,18 +47,18 @@ export default function Deliveries() {
         params: { q },
       });
 
-      const data = response.data.map(d => {
-        if (d.end_date) {
-          d.status = 'ENTREGUE';
-        } else if (d.canceled_at) {
-          d.status = 'CANCELADA';
-        } else if (d.start_date) {
-          d.status = 'RETIRADA';
+      const data = response.data.map(delivery => {
+        if (delivery.end_date) {
+          delivery.status = 'ENTREGUE';
+        } else if (delivery.canceled_at) {
+          delivery.status = 'CANCELADA';
+        } else if (delivery.start_date) {
+          delivery.status = 'RETIRADA';
         } else {
-          d.status = 'PENDENTE';
+          delivery.status = 'PENDENTE';
         }
 
-        return d;
+        return delivery;
       });
 
       setDeliveries(data);
@@ -232,6 +232,7 @@ export default function Deliveries() {
           ))}
         </tbody>
       </DeliveryTable>
+
       <View view={view}>
         <div>
           <button type="button" onClick={() => setView(false)}>
@@ -261,8 +262,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-              <h1>Não assinou</h1>
-            )}
+            <h1>Não assinou</h1>
+          )}
         </span>
       </View>
     </Container>
