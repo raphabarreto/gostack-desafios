@@ -159,6 +159,7 @@ export default function Deliveries() {
         <thead>
           <tr>
             <th>ID</th>
+            <th>Produto</th>
             <th>Destinatário</th>
             <th>Entregador</th>
             <th>Cidade</th>
@@ -171,6 +172,7 @@ export default function Deliveries() {
           {deliveries.map(delivery => (
             <tr key={delivery.id}>
               <td>#{delivery.id}</td>
+              <td>{delivery.product}</td>
               <td>{delivery.recipient.name}</td>
               <td>
                 <InitialLetters
