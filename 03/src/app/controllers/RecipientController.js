@@ -5,16 +5,14 @@ import Recipient from '../models/Recipient';
 
 class RecipientController {
   async index(req, res) {
-    const { page = 1 } = req.query;
-
-    const recipientName = `%${req.query.q}%`;
+    const { q: recipientName = '', page = 1 } = req.query;
 
     const recipients = await Recipient.findAll({
-      limit: 20,
+      limit: 5,
       where: {
-        name: { [Op.iLike]: recipientName },
+        name: { [Op.iLike]: `%${recipientName}%` },
       },
-      offset: (page - 1) * 20,
+      offset: (page - 1) * 5,
       attributes: [
         'id',
         'name',

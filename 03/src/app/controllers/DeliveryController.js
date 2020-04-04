@@ -11,16 +11,14 @@ import Queue from '../../lib/Queue';
 
 class DeliveryController {
   async index(req, res) {
-    const { page = 1 } = req.query;
-
-    const delivery = `%${req.query.q}%`;
+    const { q: delivery = '', page = 1 } = req.query;
 
     const deliveries = await Delivery.findAll({
-      limit: 20,
+      limit: 10,
       where: {
-        product: { [Op.iLike]: delivery },
+        product: { [Op.iLike]: `%${delivery}%` },
       },
-      offset: (page - 1) * 20,
+      offset: (page - 1) * 10,
       attributes: [
         'id',
         'product',
