@@ -107,7 +107,7 @@ export default function DeliveryRegister() {
             </span>
           </div>
 
-          <span className="span-form">
+          <span>
             <p>Nome do produto</p>
             <Input name="product" />
           </span>

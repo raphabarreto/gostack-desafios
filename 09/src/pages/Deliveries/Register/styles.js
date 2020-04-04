@@ -47,17 +47,17 @@ export const FormContainer = styled.div`
   background: #ffffff;
   height: 300px;
 
-  .span-form {
+  span {
     margin: 20px auto;
     font-weight: bold;
     color: #444444;
-  }
 
-  span {
-    color: #fb6c91;
-    display: block;
-    font-weight: bold;
-    margin: 10px 10px;
+    span {
+      color: #fb6c91;
+      display: block;
+      font-weight: bold;
+      margin: 10px 10px;
+    }
   }
 
   span > p {
