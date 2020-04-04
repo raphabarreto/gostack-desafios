@@ -99,11 +99,13 @@ export default function Deliverymen() {
 
       <DeliverymenTable>
         <thead>
-          <th>ID</th>
-          <th>Foto</th>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Ações</th>
+          <tr>
+            <th>ID</th>
+            <th>Foto</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
         </thead>
         <tbody>
           {deliverymen.map(deliveryman => (

@@ -152,13 +152,15 @@ export default function Deliveries() {
 
       <DeliveryTable>
         <thead>
-          <th>ID</th>
-          <th>Destinatário</th>
-          <th>Entregador</th>
-          <th>Cidade</th>
-          <th>Estado</th>
-          <th>Status</th>
-          <th>Ações</th>
+          <tr>
+            <th>ID</th>
+            <th>Destinatário</th>
+            <th>Entregador</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
         </thead>
         <tbody>
           {deliveries.map(delivery => (
@@ -262,8 +264,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-            <h1>Não assinou</h1>
-          )}
+              <h1>Não assinou</h1>
+            )}
         </span>
       </View>
     </Container>

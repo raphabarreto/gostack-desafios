@@ -80,9 +80,11 @@ export default function Problems() {
 
       <ProblemsTable>
         <thead>
-          <th>Encomenda</th>
-          <th>Problema</th>
-          <th>Ações</th>
+          <tr>
+            <th>Encomenda</th>
+            <th>Problema</th>
+            <th>Ações</th>
+          </tr>
         </thead>
         <tbody>
           {problems.map(problem => (

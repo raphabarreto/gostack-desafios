@@ -97,10 +97,12 @@ export default function Recipients() {
 
       <RecipientsTable>
         <thead>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Endereço</th>
-          <th>Ações</th>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Ações</th>
+          </tr>
         </thead>
         <tbody>
           {recipients.map(recipient => (
