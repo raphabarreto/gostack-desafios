@@ -12,6 +12,8 @@ import {
   MdEdit,
   MdDeleteForever,
   MdClose,
+  MdChevronLeft,
+  MdChevronRight,
 } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
@@ -19,6 +21,8 @@ import { parseISO } from 'date-fns';
 import { format } from 'date-fns-tz';
 
 import InitialLetters from '~/components/Letters';
+import Button from '~/components/Button';
+import Footer from '~/components/Footer';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -37,6 +41,7 @@ import {
 export default function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
   const [q, setQ] = useState('');
+  const [page, setPage] = useState(1);
 
   const [view, setView] = useState(false);
   const [deliveryView, setDeliveryView] = useState({});
@@ -44,7 +49,7 @@ export default function Deliveries() {
   useEffect(() => {
     async function loadDeliveries() {
       const response = await api.get('deliveries', {
-        params: { q },
+        params: { q, page },
       });
 
       const data = response.data.map(delivery => {
@@ -64,7 +69,7 @@ export default function Deliveries() {
       setDeliveries(data);
     }
     loadDeliveries();
-  }, [q]);
+  }, [q, page]);
 
   function handleToggleActions(id) {
     const updateDelivery = deliveries.map(delivery => {
@@ -234,6 +239,14 @@ export default function Deliveries() {
           ))}
         </tbody>
       </DeliveryTable>
+      <Footer>
+        <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <MdChevronLeft color="#fff" size={20} />
+        </Button>
+        <Button onClick={() => setPage(page + 1)}>
+          <MdChevronRight color="#fff" size={20} />
+        </Button>
+      </Footer>
 
       <View view={view}>
         <div>
@@ -264,8 +277,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-            <h1>Não assinou</h1>
-          )}
+              <h1>Não assinou</h1>
+            )}
         </span>
       </View>
     </Container>

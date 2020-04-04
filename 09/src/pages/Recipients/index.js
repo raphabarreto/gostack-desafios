@@ -5,8 +5,17 @@ import { Input } from '@rocketseat/unform';
 import { FiPlus } from 'react-icons/fi';
 import { FaEllipsisH } from 'react-icons/fa';
 
-import { MdSearch, MdEdit, MdDeleteForever } from 'react-icons/md';
+import {
+  MdSearch,
+  MdEdit,
+  MdDeleteForever,
+  MdChevronLeft,
+  MdChevronRight,
+} from 'react-icons/md';
 import { toast } from 'react-toastify';
+
+import Button from '~/components/Button';
+import Footer from '~/components/Footer';
 
 import history from '~/services/history';
 import api from '~/services/api';
@@ -23,11 +32,12 @@ import {
 export default function Recipients() {
   const [recipients, setRecipients] = useState([]);
   const [q, setQ] = useState('');
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     async function loadRecipients() {
       const response = await api.get('recipients', {
-        params: { q },
+        params: { q, page },
       });
 
       const { data } = response;
@@ -35,7 +45,7 @@ export default function Recipients() {
       setRecipients(data);
     }
     loadRecipients();
-  }, [q]);
+  }, [q, page]);
 
   function handleToggleActions(id) {
     const updateRecipient = recipients.map(recipient => {
@@ -151,6 +161,14 @@ export default function Recipients() {
           ))}
         </tbody>
       </RecipientsTable>
+      <Footer>
+        <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <MdChevronLeft color="#fff" size={20} />
+        </Button>
+        <Button onClick={() => setPage(page + 1)}>
+          <MdChevronRight color="#fff" size={20} />
+        </Button>
+      </Footer>
     </Container>
   );
 }

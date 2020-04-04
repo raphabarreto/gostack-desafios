@@ -5,10 +5,18 @@ import { Input } from '@rocketseat/unform';
 import { FiPlus } from 'react-icons/fi';
 import { FaEllipsisH } from 'react-icons/fa';
 
-import { MdSearch, MdEdit, MdDeleteForever } from 'react-icons/md';
+import {
+  MdSearch,
+  MdEdit,
+  MdDeleteForever,
+  MdChevronLeft,
+  MdChevronRight,
+} from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 import InitialLetters from '~/components/Letters';
+import Button from '~/components/Button';
+import Footer from '~/components/Footer';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -25,19 +33,20 @@ import {
 export default function Deliverymen() {
   const [deliverymen, setDeliverymen] = useState([]);
   const [q, setQ] = useState('');
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    async function loadDeliveries() {
+    async function loadDeliverymen() {
       const response = await api.get('deliverymen', {
-        params: { q },
+        params: { q, page },
       });
 
       const { data } = response;
 
       setDeliverymen(data);
     }
-    loadDeliveries();
-  }, [q]);
+    loadDeliverymen();
+  }, [q, page]);
 
   function handleToggleActions(id) {
     const updateDeliveryman = deliverymen.map(deliveryman => {
@@ -163,6 +172,14 @@ export default function Deliverymen() {
           ))}
         </tbody>
       </DeliverymenTable>
+      <Footer>
+        <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <MdChevronLeft color="#fff" size={20} />
+        </Button>
+        <Button onClick={() => setPage(page + 1)}>
+          <MdChevronRight color="#fff" size={20} />
+        </Button>
+      </Footer>
     </Container>
   );
 }
