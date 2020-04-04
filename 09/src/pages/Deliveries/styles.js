@@ -102,12 +102,12 @@ export const DeliveryTable = styled.table`
     border-bottom-right-radius: 0.9em;
   }
 
-  td:nth-child(7) {
+  td:nth-child(8) {
     text-align: right;
     color: #c6c6c6;
   }
 
-  thead th:nth-child(7) {
+  thead th:nth-child(8) {
     text-align: right;
   }
 `;
@@ -174,7 +174,7 @@ export const ActionList = styled.div`
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #ddd;
-  margin-left: calc(4% - 1.7em);
+  margin-left: calc(5% - 4.5em);
 
   &:before {
     content: '';
