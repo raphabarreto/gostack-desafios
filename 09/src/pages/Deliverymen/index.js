@@ -40,14 +40,14 @@ export default function Deliverymen() {
   }, [q]);
 
   function handleToggleActions(id) {
-    const updateDeliverymen = deliverymen.map(d => {
-      if (d.id === id) {
-        d.visible = !d.visible;
+    const updateDeliveryman = deliverymen.map(deliveryman => {
+      if (deliveryman.id === id) {
+        deliveryman.visible = !deliveryman.visible;
       }
-      return d;
+      return deliveryman;
     });
 
-    setDeliverymen(updateDeliverymen);
+    setDeliverymen(updateDeliveryman);
   }
 
   async function handleRemove(id) {

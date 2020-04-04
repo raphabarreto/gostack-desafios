@@ -36,14 +36,14 @@ export default function Problems() {
   }, [q]);
 
   function handleToggleActions(id) {
-    const updateProblems = problems.map(p => {
-      if (p.id === id) {
-        p.visible = !p.visible;
+    const updateProblem = problems.map(problem => {
+      if (problem.id === id) {
+        problem.visible = !problem.visible;
       }
-      return p;
+      return problem;
     });
 
-    setProblems(updateProblems);
+    setProblems(updateProblem);
   }
 
   function handleProblemView(data) {

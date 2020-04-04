@@ -38,14 +38,14 @@ export default function Recipients() {
   }, [q]);
 
   function handleToggleActions(id) {
-    const updateRecipients = recipients.map(d => {
-      if (d.id === id) {
-        d.visible = !d.visible;
+    const updateRecipient = recipients.map(recipient => {
+      if (recipient.id === id) {
+        recipient.visible = !recipient.visible;
       }
-      return d;
+      return recipient;
     });
 
-    setRecipients(updateRecipients);
+    setRecipients(updateRecipient);
   }
 
   async function handleRemove(id) {

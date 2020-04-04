@@ -67,14 +67,14 @@ export default function Deliveries() {
   }, [q]);
 
   function handleToggleActions(id) {
-    const updateDeliveries = deliveries.map(d => {
-      if (d.id === id) {
-        d.visible = !d.visible;
+    const updateDelivery = deliveries.map(delivery => {
+      if (delivery.id === id) {
+        delivery.visible = !delivery.visible;
       }
-      return d;
+      return delivery;
     });
 
-    setDeliveries(updateDeliveries);
+    setDeliveries(updateDelivery);
   }
 
   function handleDeliveryView(data) {
@@ -264,8 +264,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-              <h1>Não assinou</h1>
-            )}
+            <h1>Não assinou</h1>
+          )}
         </span>
       </View>
     </Container>
