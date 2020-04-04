@@ -125,20 +125,35 @@ export const ActionList = styled.div`
   flex-direction: column;
   position: absolute;
   background: #fff;
-  height: 120px;
-  margin-left: 120px;
+  height: 110px;
+  padding: 0 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #ddd;
+  margin-left: calc(10% - 3em);
 
-  a,
+  &:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #ddd;
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    margin-left: -10px;
+  }
+
   button {
     display: flex;
-    align-items: center;
     height: 120px;
-    width: 150px;
-    border: none;
+    width: 100px;
+
     background: #fff;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.5px solid #ddd;
     color: #999999;
-    margin-left: 15px;
 
     &:last-child {
       border-bottom: 0;
