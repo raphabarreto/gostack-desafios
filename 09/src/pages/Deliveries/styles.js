@@ -79,6 +79,9 @@ export const DeliveryTable = styled.table`
 
   tbody tr {
     background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #ddd;
   }
 
   tbody td {
