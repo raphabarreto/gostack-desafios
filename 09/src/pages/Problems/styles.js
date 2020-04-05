@@ -115,7 +115,7 @@ export const ActionList = styled.div`
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 2px 2px 2px #ddd;
-  margin-left: calc(21% - 1em);
+  margin-left: calc(15.2% - 1em);
 
   &:before {
     content: '';
