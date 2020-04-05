@@ -266,7 +266,7 @@ export default function Deliveries() {
         <span className="city">
           {deliveryView.city} - {deliveryView.state}
         </span>
-        <span className="zipCode">0{deliveryView.zipCode}</span>
+        <span className="zipCode">{deliveryView.zipCode}</span>
         <span className="dates">Datas</span>
         <span className="withdraw">
           Retirada: {deliveryView.startDateFormatted}
@@ -279,8 +279,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-            <h1>Não assinou</h1>
-          )}
+              <h1>Não assinou</h1>
+            )}
         </span>
       </View>
     </Container>

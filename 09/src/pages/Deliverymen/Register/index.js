@@ -59,8 +59,8 @@ export default function DeliverymanRegister() {
       <FormContainer>
         <Form schema={schema} onSubmit={handleSubmit} id="form-register">
           <AvatarInput name="avatar_id" />
-          <Input name="name" label="Nome" />
-          <Input name="email" label="Email" />
+          <Input name="name" label="Nome" placeholder="Digite o seu nome" />
+          <Input name="email" label="Email" placeholder="Digite o seu e-mail" />
         </Form>
       </FormContainer>
     </Container>

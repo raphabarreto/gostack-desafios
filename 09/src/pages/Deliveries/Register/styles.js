@@ -99,9 +99,6 @@ export const FormContainer = styled.div`
       height: 45px;
       border: 1px solid #dddddd;
       border-radius: 5px;
-      &::placeholder {
-        color: rgba(0, 0, 0, 0.3);
-      }
     }
   }
 `;

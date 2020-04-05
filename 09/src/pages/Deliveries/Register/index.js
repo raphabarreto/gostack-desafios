@@ -93,17 +93,25 @@ export default function DeliveryRegister() {
           <div className="firstLine">
             <span className="span-form">
               Destinatário
-              <Select name="recipient" options={recipients} />
+              <Select
+                name="recipient"
+                options={recipients}
+                placeholder="Selecione o destinatário"
+              />
             </span>
             <span className="span-form">
               Entregador
-              <Select name="deliveryman" options={deliverymen} />
+              <Select
+                name="deliveryman"
+                options={deliverymen}
+                placeholder="Selecione o entregador"
+              />
             </span>
           </div>
 
           <span>
             <p>Nome do produto</p>
-            <Input name="product" />
+            <Input name="product" placeholder="Digite o nome do produto" />
           </span>
         </Form>
       </FormContainer>

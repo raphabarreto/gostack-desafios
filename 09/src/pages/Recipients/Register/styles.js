@@ -67,7 +67,7 @@ export const FormContainer = styled.div`
 
   input {
     margin: 20px 20px;
-    width: 840px;
+    width: 830px;
     height: 45px;
     border: 1px solid #dddddd;
     border-radius: 5px;
@@ -76,47 +76,33 @@ export const FormContainer = styled.div`
 
   .secondLine {
     display: flex;
-    justify-content: space-between;
 
     .street {
-      width: 400px;
-      display: flex;
-      flex-direction: row;
+      width: 450px;
     }
 
     .number {
-      width: 100px;
-      display: flex;
-      flex-direction: row;
+      width: 115px;
     }
 
     .complement {
-      width: 180px;
-      display: flex;
-      flex-direction: row;
+      width: 105px;
     }
   }
 
   .thirdLine {
     display: flex;
-    justify-content: space-between;
   }
 
   .city {
     width: 250px;
-    display: flex;
-    flex-direction: row;
   }
 
   .state {
     width: 250px;
-    display: flex;
-    flex-direction: row;
   }
 
   .zipCode {
-    width: 180px;
-    display: flex;
-    flex-direction: row;
+    width: 170px;
   }
 `;

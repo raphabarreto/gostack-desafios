@@ -72,14 +72,29 @@ export default function RecipientRegister() {
         <Form schema={schema} onSubmit={handleSubmit} id="form-register">
           <div className="inputs">
             <span>
-              <Input className="name" name="name" label="Nome" />
+              <Input
+                className="name"
+                name="name"
+                label="Nome"
+                placeholder="Digite o nome do destinatário"
+              />
             </span>
             <div className="secondLine">
               <span>
-                <Input className="street" name="street" label="Rua" />
+                <Input
+                  className="street"
+                  name="street"
+                  label="Rua"
+                  placeholder="Digite o endereço"
+                />
               </span>
               <span>
-                <Input className="number" name="number" label="Número" />
+                <Input
+                  className="number"
+                  name="number"
+                  label="Número"
+                  placeholder="Digite o número"
+                />
               </span>
               <span>
                 <Input
@@ -92,13 +107,28 @@ export default function RecipientRegister() {
 
             <div className="thirdLine">
               <span>
-                <Input className="city" name="city" label="Cidade" />
+                <Input
+                  className="city"
+                  name="city"
+                  label="Cidade"
+                  placeholder="Digite a cidade"
+                />
               </span>
               <span>
-                <Input className="state" name="state" label="Estado" />
+                <Input
+                  className="state"
+                  name="state"
+                  label="Estado"
+                  placeholder="Digite o estado"
+                />
               </span>
               <span>
-                <Input className="zipCode" name="zipCode" label="CEP" />
+                <Input
+                  className="zipCode"
+                  name="zipCode"
+                  label="CEP"
+                  placeholder="Digite o cep"
+                />
               </span>
             </div>
           </div>
