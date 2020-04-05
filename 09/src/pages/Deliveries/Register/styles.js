@@ -48,7 +48,7 @@ export const FormContainer = styled.div`
   height: 300px;
 
   span {
-    margin: 20px auto;
+    margin: 15px auto;
     font-weight: bold;
     color: #444444;
 
@@ -56,7 +56,12 @@ export const FormContainer = styled.div`
       color: #fb6c91;
       display: block;
       font-weight: bold;
-      margin: 10px 10px;
+      margin: 10px 0;
+    }
+
+    span:nth-child(3) {
+      margin-top: 0;
+      margin-left: 25px;
     }
   }
 
