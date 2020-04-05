@@ -67,12 +67,12 @@ export default function DeliveryRegister() {
     loadDeliverymen();
   }, [qDeliverymen]);
 
-  async function handleSubmit(data) {
+  async function handleSubmit({ recipient, deliveryman, product }) {
     try {
       await api.post(`/deliveries`, {
-        recipient_id: data.recipient,
-        deliveryman_id: data.deliveryman,
-        product: data.product,
+        recipient_id: recipient,
+        deliveryman_id: deliveryman,
+        product,
       });
     } catch (err) {
       toast.error('Falha no cadastro da encomenda!');

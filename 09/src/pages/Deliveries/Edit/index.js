@@ -107,7 +107,7 @@ export default function DeliveryEdit({ location }) {
               <Select
                 name="recipient_id"
                 options={recipients}
-                value={delivery.recipient.name}
+                value={delivery.recipient.id}
                 disabled
               />
             </span>
