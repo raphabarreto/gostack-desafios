@@ -26,14 +26,10 @@ const schema = Yup.object().shape({
 export default function DeliveryRegister() {
   const [recipients, setRecipients] = useState([]);
   const [deliverymen, setDeliverymen] = useState([]);
-  const [qRecipients] = useState('');
-  const [qDeliverymen] = useState('');
 
   useEffect(() => {
     async function loadRecipients() {
-      const response = await api.get('recipients', {
-        params: { q: qRecipients },
-      });
+      const response = await api.get('recipients');
 
       const data = response.data.map(recipient => {
         const { id } = recipient;
@@ -46,13 +42,11 @@ export default function DeliveryRegister() {
     }
 
     loadRecipients();
-  }, [qRecipients]);
+  }, []);
 
   useEffect(() => {
     async function loadDeliverymen() {
-      const response = await api.get('deliverymen', {
-        params: { q: qDeliverymen },
-      });
+      const response = await api.get('deliverymen');
 
       const data = response.data.map(deliveryman => {
         const { id } = deliveryman;
@@ -65,7 +59,7 @@ export default function DeliveryRegister() {
     }
 
     loadDeliverymen();
-  }, [qDeliverymen]);
+  }, []);
 
   async function handleSubmit({ recipient, deliveryman, product }) {
     try {
