@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 
 import { FaEllipsisH } from 'react-icons/fa';
 
-import { MdEdit, MdDeleteForever, MdClose } from 'react-icons/md';
+import {
+  MdEdit,
+  MdDeleteForever,
+  MdClose,
+  MdChevronLeft,
+  MdChevronRight,
+} from 'react-icons/md';
 import { toast } from 'react-toastify';
+
+import Button from '~/components/Button';
+import Footer from '~/components/Footer';
 
 import api from '~/services/api';
 
@@ -17,7 +26,7 @@ import {
 
 export default function Problems() {
   const [problems, setProblems] = useState([]);
-  const [q] = useState('');
+  const [page, setPage] = useState(1);
 
   const [view, setView] = useState(false);
   const [problemView, setProblemView] = useState({});
@@ -25,7 +34,7 @@ export default function Problems() {
   useEffect(() => {
     async function loadProblems() {
       const response = await api.get('problems', {
-        params: { q },
+        params: { page },
       });
 
       const { data } = response;
@@ -33,7 +42,7 @@ export default function Problems() {
       setProblems(data);
     }
     loadProblems();
-  }, [q]);
+  }, [page]);
 
   function handleToggleActions(id) {
     const updateProblem = problems.map(problem => {
@@ -82,6 +91,7 @@ export default function Problems() {
         <thead>
           <tr>
             <th>Encomenda</th>
+            <th>Produto</th>
             <th>Problema</th>
             <th>Ações</th>
           </tr>
@@ -89,7 +99,8 @@ export default function Problems() {
         <tbody>
           {problems.map(problem => (
             <tr key={problem.id}>
-              <td>#{problem.id}</td>
+              <td>#{problem.delivery.id}</td>
+              <td>{problem.delivery.product}</td>
               <td>{problem.description}</td>
               <td>
                 <ActionButton>
@@ -135,6 +146,15 @@ export default function Problems() {
           ))}
         </tbody>
       </ProblemsTable>
+      <Footer>
+        <Button disabled={page === 1} onClick={() => setPage(page - 1)}>
+          <MdChevronLeft color="#fff" size={20} />
+        </Button>
+        <Button onClick={() => setPage(page + 1)}>
+          <MdChevronRight color="#fff" size={20} />
+        </Button>
+      </Footer>
+
       <View view={view}>
         <div>
           <button type="button" onClick={() => setView(false)}>

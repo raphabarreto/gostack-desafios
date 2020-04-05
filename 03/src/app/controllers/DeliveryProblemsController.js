@@ -10,7 +10,11 @@ import Queue from '../../lib/Queue';
 
 class DeliveryProblemsController {
   async index(req, res) {
+    const { page = 1 } = req.query;
+
     const deliveriesWithProblems = await DeliveryProblem.findAll({
+      limit: 5,
+      offset: (page - 1) * 5,
       attributes: ['id', 'description'],
       include: [
         {
