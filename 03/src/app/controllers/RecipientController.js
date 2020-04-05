@@ -8,11 +8,11 @@ class RecipientController {
     const { q: recipientName = '', page = 1 } = req.query;
 
     const recipients = await Recipient.findAll({
-      limit: 5,
+      limit: 10,
       where: {
         name: { [Op.iLike]: `%${recipientName}%` },
       },
-      offset: (page - 1) * 5,
+      offset: (page - 1) * 10,
       attributes: [
         'id',
         'name',
