@@ -124,6 +124,7 @@ export default function RecipientRegister() {
               </span>
               <span>
                 <Input
+                  maxLength="8"
                   className="zipCode"
                   name="zipCode"
                   label="CEP"
