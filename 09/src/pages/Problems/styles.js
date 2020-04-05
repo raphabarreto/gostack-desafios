@@ -161,9 +161,11 @@ export const View = styled.div`
   right: 0;
   z-index: 5;
   top: 200px;
-  border-radius: 4px;
   padding: 15px;
   flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px #ddd;
 
   button {
     border: none;
