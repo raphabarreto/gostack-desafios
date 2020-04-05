@@ -115,50 +115,57 @@ export default function Recipients() {
           </tr>
         </thead>
         <tbody>
-          {recipients.map(recipient => (
-            <tr key={recipient.id}>
-              <td>#{recipient.id}</td>
-              <td>{recipient.name}</td>
-              <td>
-                {recipient.street}, {recipient.number}, {recipient.city} -{' '}
-                {recipient.state}
-              </td>
-              <td>
-                <ActionButton>
-                  <button
-                    type="button"
-                    onClick={() => handleToggleActions(recipient.id)}
-                  >
-                    <FaEllipsisH size={24} />
-                  </button>
-
-                  <ActionList visible={recipient.visible}>
-                    <button type="button" onClick={() => handleEdit(recipient)}>
-                      <MdEdit
-                        size={24}
-                        color="#4D85EE"
-                        style={{ marginRight: 5 }}
-                      />
-                      Editar
-                    </button>
+          {recipients.length > 0 ? (
+            recipients.map(recipient => (
+              <tr key={recipient.id}>
+                <td>#{recipient.id}</td>
+                <td>{recipient.name}</td>
+                <td>
+                  {recipient.street}, {recipient.number}, {recipient.city} -{' '}
+                  {recipient.state}
+                </td>
+                <td>
+                  <ActionButton>
                     <button
                       type="button"
-                      onClick={() => {
-                        handleRemove(recipient.id);
-                      }}
+                      onClick={() => handleToggleActions(recipient.id)}
                     >
-                      <MdDeleteForever
-                        size={24}
-                        color="#DE3B3B"
-                        style={{ marginRight: 5 }}
-                      />
-                      Excluir
+                      <FaEllipsisH size={24} />
                     </button>
-                  </ActionList>
-                </ActionButton>
-              </td>
-            </tr>
-          ))}
+
+                    <ActionList visible={recipient.visible}>
+                      <button
+                        type="button"
+                        onClick={() => handleEdit(recipient)}
+                      >
+                        <MdEdit
+                          size={24}
+                          color="#4D85EE"
+                          style={{ marginRight: 5 }}
+                        />
+                        Editar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleRemove(recipient.id);
+                        }}
+                      >
+                        <MdDeleteForever
+                          size={24}
+                          color="#DE3B3B"
+                          style={{ marginRight: 5 }}
+                        />
+                        Excluir
+                      </button>
+                    </ActionList>
+                  </ActionButton>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <h1>Nenhum resultado encontrado</h1>
+          )}
         </tbody>
       </RecipientsTable>
       <Footer>

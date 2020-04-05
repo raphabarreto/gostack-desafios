@@ -169,76 +169,83 @@ export default function Deliveries() {
           </tr>
         </thead>
         <tbody>
-          {deliveries.map(delivery => (
-            <tr key={delivery.id}>
-              <td>#{delivery.id}</td>
-              <td>{delivery.product}</td>
-              <td>{delivery.recipient.name}</td>
-              <td>
-                <InitialLetters
-                  className="deliveryman-name"
-                  name={delivery.deliveryman.name}
-                />
-                {delivery.deliveryman.name}
-              </td>
-              <td>{delivery.recipient.city}</td>
-              <td>{delivery.recipient.state}</td>
-              <td>
-                <Status status={delivery.status}>
-                  <GoPrimitiveDot size={20} className="react-icons-bullet" />
-                  {delivery.status}
-                </Status>
-              </td>
-              <td>
-                <ActionButton>
-                  <button
-                    type="button"
-                    onClick={() => handleToggleActions(delivery.id)}
-                  >
-                    <FaEllipsisH size={24} />
-                  </button>
+          {deliveries.length > 0 ? (
+            deliveries.map(delivery => (
+              <tr key={delivery.id}>
+                <td>#{delivery.id}</td>
+                <td>{delivery.product}</td>
+                <td>{delivery.recipient.name}</td>
+                <td>
+                  <InitialLetters
+                    className="deliveryman-name"
+                    name={delivery.deliveryman.name}
+                  />
+                  {delivery.deliveryman.name}
+                </td>
+                <td>{delivery.recipient.city}</td>
+                <td>{delivery.recipient.state}</td>
+                <td>
+                  <Status status={delivery.status}>
+                    <GoPrimitiveDot size={20} className="react-icons-bullet" />
+                    {delivery.status}
+                  </Status>
+                </td>
+                <td>
+                  <ActionButton>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleActions(delivery.id)}
+                    >
+                      <FaEllipsisH size={24} />
+                    </button>
 
-                  <ActionList visible={delivery.visible}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleDeliveryView(delivery);
-                        handleToggleActions(delivery.id);
-                      }}
-                    >
-                      <MdVisibility
-                        size={24}
-                        color="#8E5BE8"
-                        style={{ marginRight: 5 }}
-                      />
-                      Visualizar
-                    </button>
-                    <button type="button" onClick={() => handleEdit(delivery)}>
-                      <MdEdit
-                        size={24}
-                        color="#4D85EE"
-                        style={{ marginRight: 5 }}
-                      />
-                      Editar
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleRemove(delivery.id);
-                      }}
-                    >
-                      <MdDeleteForever
-                        size={24}
-                        color="#DE3B3B"
-                        style={{ marginRight: 5 }}
-                      />
-                      Excluir
-                    </button>
-                  </ActionList>
-                </ActionButton>
-              </td>
-            </tr>
-          ))}
+                    <ActionList visible={delivery.visible}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleDeliveryView(delivery);
+                          handleToggleActions(delivery.id);
+                        }}
+                      >
+                        <MdVisibility
+                          size={24}
+                          color="#8E5BE8"
+                          style={{ marginRight: 5 }}
+                        />
+                        Visualizar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleEdit(delivery)}
+                      >
+                        <MdEdit
+                          size={24}
+                          color="#4D85EE"
+                          style={{ marginRight: 5 }}
+                        />
+                        Editar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleRemove(delivery.id);
+                        }}
+                      >
+                        <MdDeleteForever
+                          size={24}
+                          color="#DE3B3B"
+                          style={{ marginRight: 5 }}
+                        />
+                        Excluir
+                      </button>
+                    </ActionList>
+                  </ActionButton>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <h1>Nenhum resultado encontrado</h1>
+          )}
         </tbody>
       </DeliveryTable>
       <Footer>
@@ -279,8 +286,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-              <h1>Não assinou</h1>
-            )}
+            <h1>Não assinou</h1>
+          )}
         </span>
       </View>
     </Container>

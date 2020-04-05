@@ -117,59 +117,63 @@ export default function Deliverymen() {
           </tr>
         </thead>
         <tbody>
-          {deliverymen.map(deliveryman => (
-            <tr key={deliveryman.id}>
-              <td>#{deliveryman.id}</td>
-              <td>
-                <img src={deliveryman.avatar.url} alt="Deliveryman Profile" />
-              </td>
-              <td>
-                <InitialLetters
-                  className="deliveryman-name"
-                  name={deliveryman.name}
-                />
-                {deliveryman.name}
-              </td>
-              <td>{deliveryman.email}</td>
-              <td>
-                <ActionButton>
-                  <button
-                    type="button"
-                    onClick={() => handleToggleActions(deliveryman.id)}
-                  >
-                    <FaEllipsisH size={24} />
-                  </button>
+          {deliverymen.length > 0 ? (
+            deliverymen.map(deliveryman => (
+              <tr key={deliveryman.id}>
+                <td>#{deliveryman.id}</td>
+                <td>
+                  <img src={deliveryman.avatar.url} alt="Deliveryman Profile" />
+                </td>
+                <td>
+                  <InitialLetters
+                    className="deliveryman-name"
+                    name={deliveryman.name}
+                  />
+                  {deliveryman.name}
+                </td>
+                <td>{deliveryman.email}</td>
+                <td>
+                  <ActionButton>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleActions(deliveryman.id)}
+                    >
+                      <FaEllipsisH size={24} />
+                    </button>
 
-                  <ActionList visible={deliveryman.visible}>
-                    <button
-                      type="button"
-                      onClick={() => handleEdit(deliveryman)}
-                    >
-                      <MdEdit
-                        size={24}
-                        color="#4D85EE"
-                        style={{ marginRight: 5 }}
-                      />
-                      Editar
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleRemove(deliveryman.id);
-                      }}
-                    >
-                      <MdDeleteForever
-                        size={24}
-                        color="#DE3B3B"
-                        style={{ marginRight: 5 }}
-                      />
-                      Excluir
-                    </button>
-                  </ActionList>
-                </ActionButton>
-              </td>
-            </tr>
-          ))}
+                    <ActionList visible={deliveryman.visible}>
+                      <button
+                        type="button"
+                        onClick={() => handleEdit(deliveryman)}
+                      >
+                        <MdEdit
+                          size={24}
+                          color="#4D85EE"
+                          style={{ marginRight: 5 }}
+                        />
+                        Editar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleRemove(deliveryman.id);
+                        }}
+                      >
+                        <MdDeleteForever
+                          size={24}
+                          color="#DE3B3B"
+                          style={{ marginRight: 5 }}
+                        />
+                        Excluir
+                      </button>
+                    </ActionList>
+                  </ActionButton>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <h1>Nenhum resultado encontrado</h1>
+          )}
         </tbody>
       </DeliverymenTable>
       <Footer>
