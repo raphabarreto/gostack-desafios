@@ -172,7 +172,13 @@ export default function Deliverymen() {
               </tr>
             ))
           ) : (
-            <h1>Nenhum resultado encontrado</h1>
+            <tr>
+              <td>Nenhum resultado encontrado</td>
+              <td />
+              <td />
+              <td />
+              <td />
+            </tr>
           )}
         </tbody>
       </DeliverymenTable>
