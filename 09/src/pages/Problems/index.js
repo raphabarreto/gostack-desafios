@@ -97,53 +97,62 @@ export default function Problems() {
           </tr>
         </thead>
         <tbody>
-          {problems.map(problem => (
-            <tr key={problem.id}>
-              <td>#{problem.delivery.id}</td>
-              <td>{problem.delivery.product}</td>
-              <td>{problem.description}</td>
-              <td>
-                <ActionButton>
-                  <button
-                    type="button"
-                    onClick={() => handleToggleActions(problem.id)}
-                  >
-                    <FaEllipsisH size={24} />
-                  </button>
+          {problems.length > 0 ? (
+            problems.map(problem => (
+              <tr key={problem.id}>
+                <td>#{problem.delivery.id}</td>
+                <td>{problem.delivery.product}</td>
+                <td>{problem.description}</td>
+                <td>
+                  <ActionButton>
+                    <button
+                      type="button"
+                      onClick={() => handleToggleActions(problem.id)}
+                    >
+                      <FaEllipsisH size={24} />
+                    </button>
 
-                  <ActionList visible={problem.visible}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleProblemView(problem);
-                        handleToggleActions(problem.id);
-                      }}
-                    >
-                      <MdEdit
-                        size={24}
-                        color="#4D85EE"
-                        style={{ marginRight: 5 }}
-                      />
-                      Visualizar
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        handleRemove(problem.id);
-                      }}
-                    >
-                      <MdDeleteForever
-                        size={24}
-                        color="#DE3B3B"
-                        style={{ marginRight: 5 }}
-                      />
-                      Cancelar encomenda
-                    </button>
-                  </ActionList>
-                </ActionButton>
-              </td>
-            </tr>
-          ))}
+                    <ActionList visible={problem.visible}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleProblemView(problem);
+                          handleToggleActions(problem.id);
+                        }}
+                      >
+                        <MdEdit
+                          size={24}
+                          color="#4D85EE"
+                          style={{ marginRight: 5 }}
+                        />
+                        Visualizar
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          handleRemove(problem.id);
+                        }}
+                      >
+                        <MdDeleteForever
+                          size={24}
+                          color="#DE3B3B"
+                          style={{ marginRight: 5 }}
+                        />
+                        Cancelar encomenda
+                      </button>
+                    </ActionList>
+                  </ActionButton>
+                </td>
+              </tr>
+            ))
+          ) : (
+              <tr>
+                <td>Nenhum resultado encontrado</td>
+                <td />
+                <td />
+                <td />
+              </tr>
+            )}
         </tbody>
       </ProblemsTable>
       <Footer>
