@@ -279,8 +279,8 @@ export default function Deliveries() {
           {deliveryView.signature ? (
             <img src={deliveryView.signature.url} alt="signature" />
           ) : (
-              <h1>Não assinou</h1>
-            )}
+            <h1>Não assinou</h1>
+          )}
         </span>
       </View>
     </Container>

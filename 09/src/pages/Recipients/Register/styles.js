@@ -71,6 +71,7 @@ export const FormContainer = styled.div`
     height: 45px;
     border: 1px solid #dddddd;
     border-radius: 5px;
+    padding-left: 10px;
   }
 
   .secondLine {
