@@ -8,7 +8,7 @@
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>React Native</strong>, consumindo a API do <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/03">Desafio 03</a> e juntamente com sua parte front-end do <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/09">Desafio 09</a>.</p>
 
 
-# 📱 Resultado - Mobile
+# 📱 Resultado
 <h1 align="center">
     <img alt="Mobile" title="#delicinha" src="../.github/mobile.gif" width="250px"/>
 </h1>
