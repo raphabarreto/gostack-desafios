@@ -1,26 +1,17 @@
 <h1 align="center">
-    <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px" />
+  <img alt="Fastfeet" title="Fastfeet" src="../.github/logo.png" width="300px" />
 </h1>
+
 
 <h3 align="center">Desafio 10: FastFeet, mobile</h3>
 
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>React Native</strong>, consumindo a API do <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/03">Desafio 03</a> e juntamente com sua parte front-end do <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/09">Desafio 09</a>.</p>
 
-## 📖 Sobre
 
-Aplicativo mobile desenvolvido para uma transportadora fictícia, o FastFeet.
-
-## 📚 Descrição
-
-Este aplicativo é utilizado por um entregador da Fastfeet com as seguintes funcionalidades:
-
-- Listagem de suas respectivas encomendas (podendo ser pendentes ou entregues);
-- Detalhes da encomenda;
-- Informar e visualizar problemas da encomenda;
-- Retirar e confirmar encomenda;
-
-## 🤖 Resultado
-<img src="fastfeet/.github/fastfeet.gif" height="400">
+# 📱 Resultado - Mobile
+<h1 align="center">
+    <img alt="Mobile" title="#delicinha" src="../.github/mobile.gif" width="250px"/>
+</h1>
 
 ## 🚀 Tecnologias
 
@@ -35,16 +26,17 @@ Este aplicativo é utilizado por um entregador da Fastfeet com as seguintes func
 
 - ⚡ [Yarn](https://yarnpkg.com/pt-BR/docs/install)
 
-## 🔥 Instalação e execução
+# 🔥 Instalação
+1. Faça o clone do projeto `git clone git@github.com:raphabarreto/gostack-desafios.git`
 
-1. Faça um clone desse repositório;
+# 💻 Execução
+1. Entre na pasta `10`;
 
-2. Entre na pasta `cd 10/fastfeet`;
-3. Rode `yarn` para instalar todas as dependências;
-4. Renomeie o arquivo `.env-example` para `.env` e coloque `http://localhost:3333`, caso queira testar no emulador ou o `ip da sua máquina:3333` , caso queira testar no seu smartphone;
-5. Não se esqueça da `API Fastfeet` estar rodando. Você pode encontrar o link no `Desafio 03`, logo no começo deste README;
-6. Rode `yarn react-native run-android` para que o projeto seja executado;
+2. Execute `yarn install` para instalar todas as dependências;
+3. Renomeie o arquivo `.env-example` para `.env` e coloque `http://localhost:3333`, caso queira testar no emulador ou o `ip da sua máquina:3333` , caso queira testar no seu smartphone;
+4. Não se esqueça do `backend` estar rodando.
+5. Execute `yarn react-native run-android` para que o projeto seja inicializado;
 ---
 
-Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
+Feito com 💖 por [Raphael Barreto](https://www.linkedin.com/in/raphael-barreto-15631747/)
 graças a [RocketSeat](https://rocketseat.com.br/)🚀

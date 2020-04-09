@@ -2,12 +2,14 @@
     <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px" />
 </h1>
 
-<h3 align="center">Desafio 7: Arquitetura Flux</h3>
+<h3 align="center">Desafio 07: Arquitetura Flux</h3>
 
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>React Native</strong>, migrando o projeto e-commerce do <a href="https://github.com/raphabarreto/gostack-modulos/tree/master/modulo-07">Módulo 07</a> para dispositivos móveis.</p>
 
 ## 🤖 Resultado
-<img src="rocketshoes/.github/rocketshoes.gif" height="400">
+<h1 align="center">
+    <img src="../.github/rocketshoes.gif" height="400">
+</h1>
 
 ## 🚀 Tecnologias
 
@@ -30,5 +32,5 @@
 4. Rode `npx react-native run-android` para instalar a aplicação seja no seu smartphone ou emulador;
 ---
 
-Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
+Feito com 💖 por [Raphael Barreto](https://www.linkedin.com/in/raphael-barreto-15631747/)
 graças a [RocketSeat](https://rocketseat.com.br/)🚀

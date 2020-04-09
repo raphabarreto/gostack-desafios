@@ -2,6 +2,22 @@
   <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px">
 </h1>
 
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/raphabarreto/gostack-desafios">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/raphabarreto/gostack-desafios">
+
+  <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/03/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/raphabarreto/gostack-desafios">
+  </a>
+
+  <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/03/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/raphabarreto/gostack-desafios">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+</p>
+
 <h3 align="center">Desafios do Bootcamp</h3>
 
 <p align="center">Neste repositório, você irá encontrar todos os desafios realizados durante o Bootcamp.</p>

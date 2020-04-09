@@ -27,5 +27,5 @@
 4. Rode `npx react-native run-android` para instalar a aplicação seja no seu smartphone ou emulador;
 ---
 
-Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
+Feito com 💖 por [Raphael Barreto](https://www.linkedin.com/in/raphael-barreto-15631747/)
 graças a [RocketSeat](https://rocketseat.com.br/)🚀

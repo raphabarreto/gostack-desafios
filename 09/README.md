@@ -1,13 +1,26 @@
 <h1 align="center">
-    <img alt="GoStack" src="https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/bootcamp-header.png" width="200px" />
+  <img alt="Fastfeet" title="Fastfeet" src="../.github/logo.png" width="300px" />
 </h1>
 
-<h3 align="center">Desafio 9: FastFeet, front-end web</h3>
+
+<h3 align="center">Desafio 09: FastFeet, front-end web</h3>
 
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>ReactJS</strong>, consumindo a API do <a href="https://github.com/raphabarreto/gostack-desafios/tree/master/03">Desafio 03</a>.</p>
 
-## 🤖 Resultado
-### Ainda em construção
+# 🔥 Instalação
+1. Faça o clone do projeto `git clone git@github.com:raphabarreto/gostack-desafios.git`
+
+# 💻 Execução
+1. Entre na pasta `09`;
+
+2. Execute `yarn install` para instalar todas as dependências;
+3. Execute `yarn start` para inicializar a aplicação;
+4. Para logar na aplicação use as seguintes credenciais: ``admin@fastfeet.com e senha 123456``
+
+# 🌐 Resultado
+<h1 align="center">
+    <img alt="Frontend" title="#delicinha" src="../.github/frontend.gif"/>
+</h1>
 
 ## 🚀 Tecnologias
 
@@ -29,5 +42,5 @@
 3. Rode `yarn` para instalar todas as dependências;
 ---
 
-Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
+Feito com 💖 por [Raphael Barreto](https://www.linkedin.com/in/raphael-barreto-15631747/)
 graças a [RocketSeat](https://rocketseat.com.br/)🚀

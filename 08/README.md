@@ -6,8 +6,10 @@
 
 <p align="center">Nesse projeto foi desenvolvido uma aplicação do zero utilizando <strong>React Native</strong>, migrando o projeto e-commerce do <a href="https://github.com/raphabarreto/gostack-modulos/tree/master/modulo-07">Módulo 07</a> para dispositivos móveis utilizando <strong>React Hooks</strong>.</p>
 
-## 🤖 Resultado
-<img src="rocketshoes/.github/rocketshoes.gif" height="400">
+# 🤖 Resultado
+<h1 align="center">
+    <img src="../.github/rocketshoes.gif" height="400">
+</h1>
 
 ## 🚀 Tecnologias
 
@@ -18,12 +20,12 @@
 - ⚡ [Arquitetura Flux](https://facebook.github.io/flux/)
 - ⚡ [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
 
-## ✋🏻 Pré-requisitos
+# ✋🏻 Pré-requisitos
 
 - ⚡ [Yarn](https://yarnpkg.com/pt-BR/docs/install)
 - ⚡ [Ambiente de configuração - Android ou iOS](https://docs.rocketseat.dev/ambiente-react-native/introducao)
 
-## 🔥 Instalação e execução
+# 🔥 Instalação e execução
 
 1. Faça um clone desse repositório;
 2. Entre na pasta `cd rocketshoes`;
@@ -31,5 +33,5 @@
 4. Rode `npx react-native run-android` para instalar a aplicação seja no seu smartphone ou emulador;
 ---
 
-Feito com 💖 por [Raphael Barreto](https://raphabarreto.com.br/)
+Feito com 💖 por [Raphael Barreto](https://www.linkedin.com/in/raphael-barreto-15631747/)
 graças a [RocketSeat](https://rocketseat.com.br/)🚀
